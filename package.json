@@ -48,7 +48,7 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0",
-    "jquery" : "^2.2.3"
+    "jquery": "^2.2.3"
   },
   "engines": {
     "node": ">= 4.0.0",

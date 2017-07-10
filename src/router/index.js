@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Nav from '@/components/Nav'
 import Test from '@/components/Test'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -22,7 +23,13 @@ export default new Router({
     {
       path: '/test',
       name: 'Test',
-      component: Test
+      component:Test
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component:Login
     }
+
   ]
 })

@@ -1,23 +1,10 @@
 <template>
   <div id="test">
-    <div class="product">
+    <div class="product" v-for="i in 10">
       <div class="make3D">
         <img src="../assets/good/img/8.jpg" alt="">
         <div class="stats" >
-          <div class="stats-container" @mouseover="myMouseOver(this)">
-            <span class="product_price">$39</span>
-            <span class="product_name">BEAD DETAIL DRESS</span>
-            <p>Summer dress</p>
-            <p>123123111</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product">
-      <div class="make3D">
-        <img src="../assets/good/img/8.jpg" alt="">
-        <div class="stats" >
-          <div class="stats-container" @mouseover="myMouseOver()">
+          <div class="stats-container">
             <span class="product_price">$39</span>
             <span class="product_name">BEAD DETAIL DRESS</span>
             <p>Summer dress</p>

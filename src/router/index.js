@@ -4,6 +4,7 @@ import Hello from '@/components/Hello'
 import Nav from '@/components/Nav'
 import Test from '@/components/Test'
 import Login from '@/components/Login'
+import Shopcar from '@/components/Shopcar'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/Login',
       name: 'Login',
       component:Login
+    },
+    {
+      path: '/shopcar',
+      name: 'shopcar',
+      component:Shopcar
     }
 
   ]

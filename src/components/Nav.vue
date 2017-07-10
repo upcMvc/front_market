@@ -44,6 +44,7 @@
 <script>
   import $ from 'jquery'
   import '../../node_modules/bootstrap/dist/js/bootstrap'
+  import Nav from './Nav.vue'
   export default {
     name: 'nav',
     data () {

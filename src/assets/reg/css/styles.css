@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
 
-  font-size: 20px;
+  font-size: 25px;
   color: NavajoWhite  ;
 }
 body {
@@ -57,7 +57,7 @@ body :-ms-input-placeholder {
 
 .container {
   max-width: 600px;
-
+  font-size: 40px;
   margin-left: 800px;
   margin-right: 100px;
   padding: 80px 0;
@@ -66,15 +66,21 @@ body :-ms-input-placeholder {
 }
 .container h1 {
   margin-left: 200px;
-  font-size: 40px;
+  font-family: Forte;
+  font-size: 100px;
+  color: #605F5F;
   -webkit-transition-duration: 1s;
   transition-duration: 1s;
   -webkit-transition-timing-function: ease-in-put;
   transition-timing-function: ease-in-put;
   font-weight: 200;
 }
+.container h2{
+  font-size: 60px;
+}
 form {
   padding: 15px 0;
+
   position: relative;
   margin-left: -330px;
   font-family: Microsoft YaHei;
@@ -102,11 +108,13 @@ form input {
 }
 form input:hover {
   background-color: rgba(255, 255, 255, 0.4);
+
   /*padding-top: 20px;*/
 }
 form input:focus {
   background-color: white;
   width: 300px;
+
   color: Tomato ;
 }
 form button {
@@ -239,8 +247,4 @@ form button:hover {
     -webkit-transform: translateY(-700px) rotate(600deg);
     transform: translateY(-700px) rotate(600deg);
   }
-}
-.picmove{
-  margin-left: -50%;
-
 }

@@ -29,15 +29,12 @@ export default new Router({
     {
       path: '/test',
       name: 'Test',
-<<<<<<< HEAD
       component: Test
     },
     {
       path: '/cardTest',
       name: 'cardTest',
       component: cardTest
-=======
-      component:Test
     },
     {
       path: '/Login',
@@ -48,7 +45,6 @@ export default new Router({
       path: '/shopcar',
       name: 'shopcar',
       component:Shopcar
->>>>>>> 7345a3ca0973aee8cd2fa6f8b04aa22016ecd51c
     }
 
   ]

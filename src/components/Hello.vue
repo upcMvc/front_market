@@ -6,7 +6,6 @@
 </template>
 
 <script>
-
   import API from './config/req'
   import Navs from './Nav.vue'
 export default {
@@ -22,8 +21,7 @@ export default {
     this.initPost()
   },
   components:{
-<<<<<<< HEAD
-      Nav
+      Navs
   },
   methods:{
     initGet(){
@@ -45,11 +43,7 @@ export default {
         console.log("error")
       })
     }
-=======
-      Navs
->>>>>>> 7345a3ca0973aee8cd2fa6f8b04aa22016ecd51c
   }
-
 }
 </script>
 

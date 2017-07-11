@@ -75,6 +75,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
   @import '../assets/silder/css/style.css';
 </style>

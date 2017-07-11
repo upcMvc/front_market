@@ -21,7 +21,8 @@ body {
 ul, ol {
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  background-color: DimGray}
 
 div, p, dl, dt, dd {
   margin: 0;
@@ -271,8 +272,9 @@ body {
 
 input[type="text"], textarea {
   padding: .5em 20px;
-  border: 1px solid #e9e9e9;
-  background: white; }
+  border: 1px solid AntiqueWhite;
+  background: AntiqueWhite;
+  color: Black}
 
 .up-down-btn {
   color: white; }

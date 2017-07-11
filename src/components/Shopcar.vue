@@ -297,4 +297,12 @@
     padding: 5px 10px;
     text-align: center;
   }
+  .quentity > a{
+    color: white;
+    text-decoration: none;
+  }
+  .quentity > a:hover{
+    color: white;
+    text-decoration: none;
+  }
 </style>

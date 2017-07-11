@@ -4,7 +4,7 @@ import VueResource from '../../node_modules/vue-resource/dist/vue-resource'
 import Hello from '@/components/Hello'
 import Nav from '@/components/Nav'
 import Test from '@/components/Test'
-import cardTest from '@/components/cardTest'
+import index from '@/components/index'
 import Login from '@/components/Login'
 import Shopcar from '@/components/Shopcar'
 
@@ -32,9 +32,9 @@ export default new Router({
       component: Test
     },
     {
-      path: '/cardTest',
-      name: 'cardTest',
-      component: cardTest
+      path: '/index',
+      name: 'index',
+      component: index
     },
     {
       path: '/Login',

@@ -1,11 +1,12 @@
 .product{
+    margin:40px ;
     position: relative;
     perspective: 800px;
-    width:306px;
+    width:350px;
     height:471px;
     transform-style: preserve-3d;
     transition: transform 5s;
-	float:left; 
+	float:left;
 	margin-right: 23px;
 	-webkit-transition: width 500ms ease-in-out;
 	   -moz-transition: width 500ms ease-in-out;
@@ -21,10 +22,10 @@
 	position:absolute;
 	left:-5px;
 	top:-5px;
-	-webkit-transition: all 100ms ease-out; 
-       -moz-transition: all 100ms ease-out; 
-         -o-transition: all 100ms ease-out; 
-            transition: all 100ms ease-out; 
+	-webkit-transition: all 100ms ease-out;
+       -moz-transition: all 100ms ease-out;
+         -o-transition: all 100ms ease-out;
+            transition: all 100ms ease-out;
 }
 .product-back{
 	display:none;
@@ -35,22 +36,22 @@
 div.large .product-back{
 	top:0px;
 	left:0px;
-	-webkit-transition: all 100ms ease-out; 
-       -moz-transition: all 100ms ease-out; 
-         -o-transition: all 100ms ease-out; 
-            transition: all 100ms ease-out; 
+	-webkit-transition: all 100ms ease-out;
+       -moz-transition: all 100ms ease-out;
+         -o-transition: all 100ms ease-out;
+            transition: all 100ms ease-out;
 }
 .make3D{
 	width:305px;
 	height:470px;
-	position:absolute;    
+	position:absolute;
 	top:10px;
-	left:10px;	
+	left:10px;
 	overflow:hidden;
     transform-style: preserve-3d;
-	-webkit-transition:  100ms ease-out; 
-       -moz-transition:  100ms ease-out; 
-         -o-transition:  100ms ease-out; 
+	-webkit-transition:  100ms ease-out;
+       -moz-transition:  100ms ease-out;
+         -o-transition:  100ms ease-out;
             transition:  100ms ease-out;
 }
 div.make3D.flip-10{
@@ -58,28 +59,28 @@ div.make3D.flip-10{
          -moz-transform: rotateY( -10deg );
            -o-transform: rotateY( -10deg );
               transform: rotateY( -10deg );
-			   transition:  50ms ease-out; 			
+			   transition:  50ms ease-out;
 }
 div.make3D.flip90{
 	 -webkit-transform: rotateY( 90deg );
          -moz-transform: rotateY( 90deg );
            -o-transform: rotateY( 90deg );
               transform: rotateY( 90deg );
-			   transition:  100ms ease-in; 			
+			   transition:  100ms ease-in;
 }
 div.make3D.flip190{
 	 -webkit-transform: rotateY( 190deg );
          -moz-transform: rotateY( 190deg );
            -o-transform: rotateY( 190deg );
               transform: rotateY( 190deg );
-			   transition:  100ms ease-out; 			
+			   transition:  100ms ease-out;
 }
 div.make3D.flip180{
 	 -webkit-transform: rotateY( 180deg );
          -moz-transform: rotateY( 180deg );
            -o-transform: rotateY( 180deg );
               transform: rotateY( 180deg );
-			   transition:  150ms ease-out; 			
+			   transition:  150ms ease-out;
 }
 .make3D.animate{
 	top:5px;
@@ -87,42 +88,42 @@ div.make3D.flip180{
 	width:315px;
 	height:480px;
 	box-shadow:0px 5px 31px -1px rgba(0, 0, 0, 0.15);
-	-webkit-transition:  100ms ease-out; 
-       -moz-transition:  100ms ease-out; 
-         -o-transition:  100ms ease-out; 
-            transition:  100ms ease-out; 
+	-webkit-transition:  100ms ease-out;
+       -moz-transition:  100ms ease-out;
+         -o-transition:  100ms ease-out;
+            transition:  100ms ease-out;
 }
 div.large .make3D{
 	top:0;
 	left:0;
 	width:315px;
 	height:480px;
-	-webkit-transition:  300ms ease-out; 
-       -moz-transition:  300ms ease-out; 
-         -o-transition:  300ms ease-out; 
-            transition:  300ms ease-out; 
+	-webkit-transition:  300ms ease-out;
+       -moz-transition:  300ms ease-out;
+         -o-transition:  300ms ease-out;
+            transition:  300ms ease-out;
 }
 .large div.make3D{box-shadow:0px 5px 31px -1px rgba(0, 0, 0, 0);}
 .large div.flip-back{display:none;}
 .stats-container{
-	background:#fff;	
+	background:#fff;
 	position:absolute;
 	top:382px;
 	left:0;
 	width: 252px;
 	height: 300px;
 	padding: 24px 40px 35px 32px;
-	-webkit-transition: all 200ms ease-out; 
-       -moz-transition: all 200ms ease-out; 
-         -o-transition: all 200ms ease-out; 
+	-webkit-transition: all 200ms ease-out;
+       -moz-transition: all 200ms ease-out;
+         -o-transition: all 200ms ease-out;
             transition: all 200ms ease-out;
 }
 .make3D.animate .stats-container{
 	top:265px;
-	-webkit-transition: all 200ms ease-out; 
-       -moz-transition: all 200ms ease-out; 
-         -o-transition: all 200ms ease-out; 
-            transition: all 200ms ease-out; 
+	-webkit-transition: all 200ms ease-out;
+       -moz-transition: all 200ms ease-out;
+         -o-transition: all 200ms ease-out;
+            transition: all 200ms ease-out;
 }
 .stats-container .product_name{
 	font-size: 15px;
@@ -131,7 +132,7 @@ div.large .make3D{
 }
 .stats-container p{
 	font-size:15px;
-	color:#b1b1b3;	
+	color:#b1b1b3;
 	padding:2px 0 20px 0;
 }
 .stats-container .product_price{
@@ -143,18 +144,18 @@ div.large .make3D{
 .image_overlay{
 	position:absolute;
 	top:0;
-	left:0; 
+	left:0;
 	width:100%;
 	height:100%;
 	background:#5ff7d2;
-	opacity:0;	
+	opacity:0;
 }
 .make3D.animate .image_overlay{
-	opacity:0.7;	
-	-webkit-transition: all 200ms ease-out; 
-       -moz-transition: all 200ms ease-out; 
-         -o-transition: all 200ms ease-out; 
-            transition: all 200ms ease-out; 
+	opacity:0.7;
+	-webkit-transition: all 200ms ease-out;
+       -moz-transition: all 200ms ease-out;
+         -o-transition: all 200ms ease-out;
+            transition: all 200ms ease-out;
 }
 .product-options{
 	padding:0;
@@ -164,18 +165,19 @@ div.large .make3D{
 	color:#393c45;
 	font-size:14px;
 }
-.product-options span{	
+.product-options span{
 	color:#969699;
 	font-size:14px;
 	display:block;
 	margin-bottom:8px;
 }
 .make3D{
-	opacity:1;	
-	-webkit-transition: all 200ms ease-out; 
-       -moz-transition: all 200ms ease-out; 
-         -o-transition: all 200ms ease-out; 
-            transition: all 200ms ease-out; 		
+  margin-left: 60px;
+	opacity:1;
+	-webkit-transition: all 200ms ease-out;
+       -moz-transition: all 200ms ease-out;
+         -o-transition: all 200ms ease-out;
+            transition: all 200ms ease-out;
 }
 
 

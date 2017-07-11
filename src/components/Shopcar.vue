@@ -85,12 +85,9 @@
                 <!--第五列-->
                 <div class="cart-tab-5">
                   <div class="cart-item-opration">
-                    <a href="javascript:;" class="item-edit-btn" @click="delConfirm(item)">
-                      <svg class="icon icon-del"><use xlink:href="#icon-del"></use></svg>
-                    </a>
+                    <span class="glyphicon glyphicon-trash" @click="del(item,index)"></span>
                   </div>
                 </div>
-
               </li>
             </ul>
           </div>
@@ -278,18 +275,10 @@
           }
         });
       },
-      // 点击删除 出现弹框
-      delConfirm:function (item) {
-        this.delFlag = true;
-        this.curProduct = item; // 保存当前删除的对象
-      },
-      // 点击弹框里面的 ok 确认删除
-      delProduct:function () {
-        // 通过indexof 来搜索当前选中的商品 找到索引 index
-        var index = this.productList.indexOf(this.curProduct);
-        // 获取索引 后删除元素 splice(index，1) 两个参数  第一个参数索引 第二个参数 删除个数
-        this.productList.splice(index ,1);// 从当前索引开始删，删除一个元素
-        this.delFlag = false; // 删除后 弹框消失
+      del(item,index){
+        console.log(item.productId)//id
+        this.productList.splice(index,1)
+        //删除数据给后台
       }
     }
 
@@ -299,6 +288,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
   @import "../assets/shopcar/css/base2.css";
   @import "../assets/shopcar/css/checkout.css";
   @import "../assets/shopcar/css/modal.css";

@@ -475,7 +475,7 @@
       width: 110px; }
 
 .price-count .order-total-price span:last-child {
-  color: #d1434a; }
+  color:Salmon; }
 
 .tips_pop {
   position: relative; }
@@ -533,7 +533,7 @@
     .tee_tips_pop .tee_pop_box .tee_total em {
       color: #333; }
   .tee_tips_pop .tee_pop_box .price {
-    color: #d1434a; }
+    color: Salmon; }
 
 @media only screen and (max-width: 991px) {
   .price-count li {
@@ -590,13 +590,13 @@
     max-width: 767px;
     margin: 0 auto 10px auto;
     padding: 37px 0;
-    border: 1px dashed #EE7A23; }
+    border: 1px dashed Salmon; }
     .order-create-main .get-lecode .lecode-main .lecode-num {
       margin-bottom: 20px;
-      color: #EE7A23;
+      color: Salmon;
       font-size: 20px; }
   .order-create-main .get-lecode .get-lecode-tips {
-    color: Tomato;
+    color: Salmon;
     line-height: 16px;
     line-height: 18px; }
 
@@ -629,6 +629,7 @@
     position: relative;
     padding: 0 1em;
     /*background-color: #fff;*/
+
     font-family: "moderat", sans-serif;
     font-weight: bold;
     font-size: 40px;

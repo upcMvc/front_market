@@ -2,7 +2,7 @@
   <div id="nav">
     <div id="wrapper" v-bind:class="{'toggled':isClosed}">
       <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <nav  id="sidebar-wrapper" role="navigation">
         <ul class="nav sidebar-nav">
           <li>
             <a href="#"><i class="fa fa-fw fa-home"></i>主页</a>
@@ -75,5 +75,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
   @import '../assets/silder/css/style.css';
 </style>

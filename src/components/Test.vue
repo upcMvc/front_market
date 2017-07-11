@@ -5,15 +5,14 @@
         <img src="../assets/good/img/8.jpg" alt="">
         <div class="stats">
           <div class="stats-container">
-          <div class="stats-container">
-            <span class="product_price">$39</span>
-            <span class="product_name">BEAD DETAIL DRESS</span>
-            <p>ess</p>
-            <p>123123111</p>
+              <span class="product_price">$39</span>
+              <span class="product_name">BEAD DETAIL DRESS</span>
+              <p>ess</p>
+              <p>132132132123123</p>
+              <p>123123111</p>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -48,24 +47,8 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
   @import url('../assets/good/css/styles.css');
-  h1, h2 {
-    font-weight: normal;
-  }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
 </style>

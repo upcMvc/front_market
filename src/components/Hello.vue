@@ -6,16 +6,43 @@
 </template>
 
 <script>
+  import API from './config/req'
   import Navs from './Nav.vue'
 export default {
+
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
     }
+  },
+  created(){
+//    this.initGet()
+    this.initPost()
   },
   components:{
       Navs
+  },
+  methods:{
+    initGet(){
+      let self = this
+        self.$http.get(API.testGet).then((response)=> {
+            console.log(response)
+        },()=>{
+            console.log("error")
+        })
+    },
+    initPost(){
+      let self = this
+      let data = {
+          a:'test'
+      }
+      self.$http.post(API.testPost,data).then((response)=> {
+        console.log(response)
+      },()=>{
+        console.log("error")
+      })
+    }
   }
 }
 </script>

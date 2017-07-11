@@ -3,7 +3,7 @@
     <div class="product" v-for="i in 10">
       <div class="make3D">
         <img src="../assets/good/img/8.jpg" alt="">
-        <div class="stats" >
+        <div class="stats">
           <div class="stats-container">
           <div class="stats-container">
             <span class="product_price">$39</span>

@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import VueResource from '../../node_modules/vue-resource/dist/vue-resource'
 import Hello from '@/components/Hello'
 import Nav from '@/components/Nav'
 import Test from '@/components/Test'
+import cardTest from '@/components/cardTest'
 
 Vue.use(Router)
+Vue.use(VueResource)
+Vue.http.options.emulateJSON = true
 
 export default new Router({
   routes: [
@@ -23,6 +27,11 @@ export default new Router({
       path: '/test',
       name: 'Test',
       component: Test
+    },
+    {
+      path: '/cardTest',
+      name: 'cardTest',
+      component: cardTest
     }
   ]
 })

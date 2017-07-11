@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import API from './config/req'
+  import API from '../config/req'
   import Navs from './Nav.vue'
 export default {
 

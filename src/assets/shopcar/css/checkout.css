@@ -576,7 +576,7 @@
     padding: 0 10px; }
   .order-create-main .order-create-btn-wrap .btn {
     width: 100%;
-    min-width: auto;
+    min-width: inherit;
   }
   .order-create-main .order-create-btn-wrap:after {
     visibility: hidden;

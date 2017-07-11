@@ -5,7 +5,8 @@
       <nav  id="sidebar-wrapper" role="navigation">
         <ul class="nav sidebar-nav">
           <li>
-            <a href="#"><i class="fa fa-fw fa-home"></i>主页</a>
+            <!--style="font-family:YouYuan"-->
+            <a href="#" ><i class="fa fa-fw fa-home"></i>主页</a>
           </li>
           <li>
             <a href="#"><i class="fa fa-fw fa-folder"></i> Page one</a>

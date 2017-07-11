@@ -2,8 +2,9 @@
   <div id="login">
     <div class="wrapper">
       <div class="container">
-        <h1>Welcome</h1>
+
         <form class="form">
+          <h1>Welcome to shopping~</h1><br>
           <input type="text" placeholder="Username">
           <input type="password" placeholder="Password">
           <button type="submit" id="login-button">Login</button>
@@ -23,6 +24,7 @@
         <li></li>
       </ul>
     </div>
+    <p><img src="../assets/login/img/5.png" alt="picture" class="picmove"></p>
   </div>
 </template>
 

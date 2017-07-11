@@ -4,7 +4,7 @@
     <div class="container">
       <div class="cart">
         <div class="checkout-title">
-          <span>Vue购物车实例</span>
+          <span >Vue购物车实例</span>
         </div>
 
         <!--商品信息-->

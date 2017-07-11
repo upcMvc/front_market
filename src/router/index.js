@@ -7,6 +7,7 @@ import Test from '@/components/Test'
 import index from '@/components/index'
 import Login from '@/components/Login'
 import Shopcar from '@/components/Shopcar'
+import Reg from '@/components/Reg'
 
 
 Vue.use(Router)
@@ -45,7 +46,12 @@ export default new Router({
       path: '/shopcar',
       name: 'shopcar',
       component:Shopcar
+    },
+    ,
+    {
+      path: '/reg',
+      name: 'reg',
+      component:Reg
     }
-
   ]
 })

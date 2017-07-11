@@ -2,7 +2,7 @@
   <div id="nav">
     <div id="wrapper" v-bind:class="{'toggled':isClosed}">
       <!-- Sidebar -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <nav  id="sidebar-wrapper" role="navigation">
         <ul class="nav sidebar-nav">
           <li>
             <a href="#"><i class="fa fa-fw fa-home"></i>主页</a>
@@ -32,9 +32,9 @@
       <!-- Page Content -->
       <div id="page-content-wrapper">
         <button type="button" class="hamburger animated fadeInLeft" v-bind:class="{'is-closed':!isClosed,'is-open':isClosed}" @click="hamburger_cross()">
-          <span class="hamb-top"></span>
-          <span class="hamb-middle"></span>
-          <span class="hamb-bottom"></span>
+          <span class="hamb-top" style="background: Tomato "></span>
+          <span class="hamb-middle" style="background: Tomato "></span>
+          <span class="hamb-bottom" style="background: Tomato "></span>
         </button>
       </div>
     </div>
@@ -44,6 +44,7 @@
 <script>
   import $ from 'jquery'
   import '../../node_modules/bootstrap/dist/js/bootstrap'
+  import Nav from './Nav.vue'
   export default {
     name: 'nav',
     data () {
@@ -74,5 +75,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
   @import '../assets/silder/css/style.css';
 </style>

@@ -5,6 +5,9 @@ import Hello from '@/components/Hello'
 import Nav from '@/components/Nav'
 import Test from '@/components/Test'
 import cardTest from '@/components/cardTest'
+import Login from '@/components/Login'
+import Shopcar from '@/components/Shopcar'
+
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -26,12 +29,27 @@ export default new Router({
     {
       path: '/test',
       name: 'Test',
+<<<<<<< HEAD
       component: Test
     },
     {
       path: '/cardTest',
       name: 'cardTest',
       component: cardTest
+=======
+      component:Test
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component:Login
+    },
+    {
+      path: '/shopcar',
+      name: 'shopcar',
+      component:Shopcar
+>>>>>>> 7345a3ca0973aee8cd2fa6f8b04aa22016ecd51c
     }
+
   ]
 })

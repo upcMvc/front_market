@@ -4,7 +4,6 @@
       <div class="container">
         <form class="form-horizontal">
           <div class="form-group fontH">
-            <!--<label  class="col-sm-4 control-label">Welcome to shopping~</label>-->
             <h1>Shopping now!</h1>
           </div>
           <div class="form-group">
@@ -35,12 +34,6 @@
           </div>
         </form>
 
-        <!--<form class="form">-->
-        <!--<h1>Welcome to shopping~</h1><br>-->
-        <!--<input type="text" placeholder="Username"><br>-->
-        <!--<input type="password" placeholder="Password"><br>-->
-        <!--<button type="submit" id="login-button">Login</button>-->
-        <!--</form>-->
       </div>
 
       <ul class="bg-bubbles">
@@ -67,7 +60,6 @@
     name: 'login',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App',
         username: '',
         password: '',
         tncodeSucess: ''
@@ -89,34 +81,14 @@
         }, () => {
             console.log('error !')
         })
-
-
       }
     }
-
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
   @import "../assets/login/css/styles.css";
   @import "../assets/login/css/tncode.css";
-
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: Coral;
-  }
 </style>

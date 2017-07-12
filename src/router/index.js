@@ -8,6 +8,7 @@ import index from '@/components/index'
 import Login from '@/components/Login'
 import Shopcar from '@/components/Shopcar'
 import Reg from '@/components/Reg'
+import MapTest from '@/components/MapTest'
 
 
 Vue.use(Router)
@@ -47,11 +48,15 @@ export default new Router({
       name: 'shopcar',
       component:Shopcar
     },
-    ,
     {
       path: '/reg',
       name: 'reg',
       component:Reg
+    },
+    {
+      path:'/mapTest',
+      name:'mapTest',
+      components:MapTest
     }
   ]
 })

@@ -8,6 +8,8 @@ import index from '@/components/index'
 import Login from '@/components/Login'
 import Shopcar from '@/components/Shopcar'
 import Reg from '@/components/Reg'
+import Buyed from '@/components/Buyed'
+import Perinfo from '@/components/Perinfo'
 import MapTest from '@/components/MapTest'
 
 
@@ -54,6 +56,15 @@ export default new Router({
       component:Reg
     },
     {
+      path: '/perinfo',
+      name: 'perinfo',
+      component: Perinfo
+    },
+    {
+      path: '/buyed',
+      name: 'buyed',
+      component: Buyed
+    },{
       path:'/mapTest',
       name:'mapTest',
       components:MapTest

@@ -21,7 +21,6 @@
           </div>
           <div class="form-group">
             <label class="col-sm-6 control-label fontC">验证码</label>
-            <input type="text" style="display: none;" v-model="tncodeSucess">
             <div class="col-sm-6">
               <input id="tncode" class="tncode" placeholder="验证图片">
             </div>
@@ -30,7 +29,7 @@
           <div class="form-group">
             <div class="col-sm-offset-6 col-sm-6 fontC">
               <!--<button type="submit" class="btn btn-default">Sign in</button>-->
-              <button type="button" id="reg-button" v-on:click="submit">登录</button>
+              <button type="button" id="reg-button" v-on:click="sub">登录</button>
             </div>
           </div>
         </form>
@@ -70,24 +69,42 @@
         msg: 'Welcome to Your Vue.js App',
         username: '',
         password: '',
-        tncodeSucess: ''
       }
     },
     mounted() {
       tncode.init();
     },
     methods: {
-      submit (){
+      sub (){
+        let tn = document.getElementById('tncode');
+        if(tn.value != '验证成功'){
+            alert('请输入验证码');
+            return false;
+        }
+
+
         let postData = {
           username: this.username,
           password: this.password
         };
         this.$http.post(API.logIn, postData).then((response) => {
-            if(response.data.id == -1){
-                alert(response.data.id);
-            }
+          if (response.data.id == -1) {
+            alert(response.data.message);
+          } else {
+            //console.log(response.data);
+            localStorage.setItem("username", response.data.user.username);
+            //let username = localStorage.getItem("username");
+            //console.log(username);
+            localStorage.setItem("token", response.data.token);
+            //let token = localStorage.getItem("token");
+            //console.log(token);
+            localStorage.setItem("email",response.data.user.email);
+            //let email = localStorage.getItem("email");
+            localStorage.setItem("id",response.data.user.id);
+            localStorage.setItem("phone",response.data.user.phone);
+          }
         }, () => {
-            console.log('error !')
+          console.log('error !')
         })
 
 

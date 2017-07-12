@@ -169,9 +169,6 @@ var tncode = {
       var tn_input = document.getElementById('tncode');
       tn_input.value = '验证成功';
 
-
-
-
       setTimeout(tncode.hide, 3000);
       if (tncode._onsuccess) {
         tncode._onsuccess();

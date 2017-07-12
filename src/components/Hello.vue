@@ -10,11 +10,10 @@
   import API from '../config/req'
   import Navs from './Nav.vue'
 export default {
-
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Welcome to Your Vue.js App'
     }
   },
   created(){
@@ -39,7 +38,7 @@ export default {
           a:'test'
       }
       self.$http.post(API.testPost,data).then((response)=> {
-        console.log(response)
+        console.log()
       },()=>{
         console.log("error")
       })

@@ -3,9 +3,8 @@
     <div id="wrapper" v-bind:class="{'toggled':isClosed}">
       <!-- Sidebar -->
       <nav  id="sidebar-wrapper" role="navigation">
-        <ul class="nav sidebar-nav">
+        <ul class="sidebar-nav">
           <li>
-            <!--style="font-family:YouYuan"-->
             <a href="#" ><i class="fa fa-fw fa-home"></i>主页</a>
           </li>
           <li>
@@ -74,7 +73,7 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
   @import '../assets/silder/css/style.css';
 </style>

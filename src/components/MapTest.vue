@@ -18,15 +18,12 @@
 
     },
     components:{
-        Locate
+      Locate
     },
     methods:{
       addr(pt,addCom){
-          console.log(pt)
+        console.log(pt)
         console.log(addCom)
-//        this.$on('mapReturn',(pt)=>{
-//            console.log(pt)
-//        })
       }
     }
   }

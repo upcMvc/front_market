@@ -8,6 +8,8 @@ import index from '@/components/index'
 import Login from '@/components/Login'
 import Shopcar from '@/components/Shopcar'
 import Reg from '@/components/Reg'
+import Buyed from '@/components/Buyed'
+import Perinfo from '@/components/Perinfo'
 
 
 Vue.use(Router)
@@ -47,11 +49,20 @@ export default new Router({
       name: 'shopcar',
       component:Shopcar
     },
-    ,
     {
       path: '/reg',
       name: 'reg',
       component:Reg
+    },
+    {
+      path: '/perinfo',
+      name: 'perinfo',
+      component: Perinfo
+    },
+    {
+      path: '/buyed',
+      name: 'buyed',
+      component: Buyed
     }
   ]
 })

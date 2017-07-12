@@ -4,9 +4,8 @@
     <div class="container">
       <div class="cart">
         <div class="checkout-title">
-          <span >Vue购物车实例</span>
+          <span >购物车</span>
         </div>
-
         <!--商品信息-->
         <div class="item-list-wrap">
           <div class="cart-item">
@@ -147,16 +146,15 @@
     components:{
       Navs
     },
-    filters:{ // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
-      formatMoney:function (value) { // 默认接收一个参数
-        return "¥ " + value.toFixed(2) +" 元"; // 返回一个¥ 加上2位小数
+    filters:{
+      formatMoney:function (value) {
+        return "¥ " + value.toFixed(2) +" 元";
       }
     },
     // 这个方法就相当于jq的ready()方法
-    mounted:function () { //生命周期的一部分，在实例化创建完成后，需要查询某一个方法 需要定义一个mounted 方法
-      this.$nextTick(function () {  // 代码保证 this.$el 在 document 中
+    mounted:function () {
+      this.$nextTick(function () {
         this.cartView();
-        // 也可以使用 vm.cartView();
       });
     },
     methods:{
@@ -234,18 +232,8 @@
         }
         this.caleTotalPrice();
       },
-      //如何让Vue 监听一个不存在的变量 单选操作
       selectedProduct:function (item) { // 接收的参数
         if( typeof item.checked == 'undefined'){ // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
-          /**
-           * 两种全局注册和局部注册  让vue 来监听
-           * 第一个参数 要添加的对象
-           * 第二个参数 添加的变量
-           * 第三个参数 添加的值是什么
-           * 意思是我们通过 Vue全局注册 往item变量中注册一个checked 属性 它的值是 true
-           *
-           * this.$set(item,"checked",true)  局部注册
-           */
           Vue.set(item,"checked",true);
         }else {
           item.checked = !item.checked;

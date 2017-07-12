@@ -22,9 +22,10 @@
           <div class="form-group">
             <label  class="col-sm-6 control-label fontC">验证码</label>
             <div class="col-sm-6">
-              <input type="img" placeholder="验证图片"><!--加入验证码-->
+              <input id="tncode" class="tncode"placeholder="验证图片">
             </div>
           </div>
+
           <div class="form-group">
             <div class="col-sm-offset-6 col-sm-6 fontC">
               <!--<button type="submit" class="btn btn-default">Sign in</button>-->
@@ -59,12 +60,16 @@
 </template>
 
 <script>
+  import tncode from  '../assets/login/script/tn_code'
   export default {
     name: 'login',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'
       }
+    },
+    mounted() {
+      tncode.init();
     }
   }
 </script>
@@ -72,6 +77,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   @import "../assets/login/css/styles.css";
+  @import "../assets/login/css/tncode.css";
   h1, h2 {
     font-weight: normal;
   }

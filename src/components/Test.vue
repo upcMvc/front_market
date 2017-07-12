@@ -1,54 +1,41 @@
 <template>
-  <div id="test">
-    <div class="product" v-for="i in 10">
-      <div class="make3D">
-        <img src="../assets/good/img/8.jpg" alt="">
-        <div class="stats">
-          <div class="stats-container">
-              <span class="product_price">$39</span>
-              <span class="product_name">BEAD DETAIL DRESS</span>
-              <p>ess</p>
-              <p>132132132123123</p>
-              <p>123123111</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <Locate v-on:mapReturn="addr"></Locate>
+    <button @click="addr()">地址</button>
   </div>
 </template>
 
 <script>
-  import $ from 'jquery'
+  import Locate from './map/Locate.vue'
   export default {
-    name: 'test',
-    data () {
-      return {
-        msg: 'Welcome to Your Vue.js App'
+    name:'locate',
+    data(){
+      return{
+
       }
     },
-    mounted(){
-        this.initShowing()
+    mounted () {
+
+    },
+    components:{
+        Locate
     },
     methods:{
-      initShowing(){
-        $('.product').each(function (i, el) {
-          $(el).find('.make3D').hover(function () {
-            $(this).parent().css('z-index', '20');
-            $(this).addClass('animate');
-            $(this).find('div.carouselNext, div.carouselPrev').addClass('visible');
-          }, function () {
-            $(this).removeClass('animate');
-            $(this).parent().css('z-index', '1');
-            $(this).find('div.carouselNext, div.carouselPrev').removeClass('visible');
-          });
-        });
+      addr(pt,addCom){
+          console.log(pt)
+        console.log(addCom)
+//        this.$on('mapReturn',(pt)=>{
+//            console.log(pt)
+//        })
       }
     }
   }
 </script>
 
-
 <style scoped>
-  @import url('../assets/good/css/styles.css');
-
+  #allmap{
+    width: 500px;
+    height: 500px;
+    margin:0;font-family:"微软雅黑";
+  }
 </style>

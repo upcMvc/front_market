@@ -8,12 +8,9 @@ import index from '@/components/index'
 import Login from '@/components/Login'
 import Shopcar from '@/components/Shopcar'
 import Reg from '@/components/Reg'
-<<<<<<< HEAD
 import Buyed from '@/components/Buyed'
 import Perinfo from '@/components/Perinfo'
-=======
 import MapTest from '@/components/MapTest'
->>>>>>> 1c3b287972176abe0079c687b4999f6dfe5a1e12
 
 
 Vue.use(Router)
@@ -59,7 +56,6 @@ export default new Router({
       component:Reg
     },
     {
-<<<<<<< HEAD
       path: '/perinfo',
       name: 'perinfo',
       component: Perinfo
@@ -68,11 +64,10 @@ export default new Router({
       path: '/buyed',
       name: 'buyed',
       component: Buyed
-=======
+    },{
       path:'/mapTest',
       name:'mapTest',
       components:MapTest
->>>>>>> 1c3b287972176abe0079c687b4999f6dfe5a1e12
     }
   ]
 })

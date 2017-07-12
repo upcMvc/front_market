@@ -38,7 +38,7 @@ export default {
           a:'test'
       }
       self.$http.post(API.testPost,data).then((response)=> {
-        console.log(response)
+        console.log()
       },()=>{
         console.log("error")
       })

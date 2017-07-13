@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <div class="wrapper">
+    <div class="wrapper ">
       <div class="container">
         <form class="form-horizontal">
           <div class="form-group fontH">
@@ -30,8 +30,43 @@
               <button type="button" id="reg-button" @click="sub">登录</button>
             </div>
           </div>
-        </form>
+          <div class="formM">
+            <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 325px">
+             忘记密码
+            </button>
+          <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 325px">
+            注册
+          </button>
+      </div>
 
+
+        </form>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">重置密码</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  输入邮箱账号，将给您发送重置密码的邮件
+                  <div class="col-sm-8">
+                    <input type="text" placeholder="Email" v-model="email" style="margin-left: 175px">
+                  </div>
+                </div>
+
+<<<<<<< HEAD
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">发送</button>
+              </div>
+            </div>
+          </div>
+        </div>
+=======
+>>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
       </div>
 
       <ul class="bg-bubbles">
@@ -80,6 +115,7 @@
         };
         this.$http.post(API.logIn, postData).then((response) => {
           if (response.data.id == -1) {
+            alert(response.data.id);
             alert(response.data.message);
           } else {
             localStorage.setItem("username", response.data.user.username);
@@ -96,6 +132,9 @@
         }, () => {
           console.log('error !')
         })
+      },
+      reg(){
+        this.$router.push({path: '/reg'})
       }
     }
   }
@@ -103,7 +142,29 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
   @import "../assets/login/css/styles.css";
   @import "../assets/login/css/tncode.css";
+  .formM{
+    width: 10px;
+    text-align: center;
+  }
+
+  h1, h2 {
+    font-weight: normal;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  a {
+    color: Coral;
+  }
 </style>

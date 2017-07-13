@@ -30,7 +30,6 @@
             <div class="col-sm-8">
               <input type="text" placeholder="Email" v-model="email">
             </div>
-
           </div>
           <div class="form-group">
             <label class="col-sm-4 control-label fontC">手机号</label>
@@ -41,7 +40,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8 fontC">
-              <button type="submit"  @click="submit()">注册</button>
+              <button type="submit" @click="submit()">注册</button>
             </div>
           </div>
         </form>

@@ -58,8 +58,6 @@
     </div>
     </div>
 </template>
-
-
 <script>
   import $ from 'jquery'
   import Locate from './map/Locate.vue'
@@ -89,8 +87,6 @@
       })
     }
   }(jQuery);
-
-
   export default {
     name: 'perInfo',
     data () {
@@ -99,7 +95,6 @@
       }
     },
     created(){
-
     },
     components: {
         Locate
@@ -125,8 +120,6 @@
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
   @import "../assets/perinfo/css/feedify.min.css";
@@ -142,6 +135,4 @@
     margin-top: 10px;
     font-size: 20px;
   }
-
-
 </style>

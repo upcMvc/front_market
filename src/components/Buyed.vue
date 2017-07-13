@@ -20,17 +20,17 @@
               </div>
               <div class="legend">
                 <h3><a href="#"><i class="icon-heart"></i> 51 Likes</a></h3>
-                <h4 class="pull-left ">Marcus Lewis</h4>
-                <p>Your bones don't break, mine do.</p>
+                <h4 class="pull-left ">李三</h4>
+                <p>好吃！</p>
               </div>
               <ul class="comments list-unstyled">
                 <li>
-                  <h4 class="pull-left ">Sawyer Flint</h4>
-                  <p>You think water moves fast? You should see ice. It moves like it has a mind.</p>
+                  <h4 class="pull-left ">李四</h4>
+                  <p>下次还来！！</p>
                 </li>
                 <li>
-                  <h4 class="pull-left ">Chelsea McKay</h4>
-                  <p>Now that there is the Tec-9, a crappy spray gun from South Miami.</p>
+                  <h4 class="pull-left ">李五</h4>
+                  <p>谢谢店家！</p>
                 </li>
               </ul>
             </footer>
@@ -132,9 +132,9 @@
   /*@import "http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800,800italic,700italic";*/
   @import "../assets/perinfo/css/feedify.min.css";
   @import "../assets/perinfo/css/feedify-theme.min.css";
+  .bag{
+    background: silver ;
 
-  .bag {
-    background: dimgray;
     /*background: -webkit-linear-gradient(top left,  lightgray 0%, LightSlateGray  100%);*/
     /*background: linear-gradient(to bottom right, lightgray   100%, LightSlateGray  0%);*/
     z-index: 0;

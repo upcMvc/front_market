@@ -12,6 +12,9 @@ const API = {
   GoodsInfo: baseurl + '/goods/findAll',
   reg: baseurl + "/user/regist",//用户注册api
   shoppingCart: baseurl + "/ShoppingCart",//购物车相关操作api
+  forget: baseurl + "/user/forget_password",
+  getAddrFormBack: baseurl + "/address/findbyuserid",
+  resetPassword: baseurl + '/user/reset_password',
   shoppcartCreat: baseurl + '/ShoppingCart' + '/create',
   history:baseurl+"/history",//历史记录相关操作API
   findShopRecord: baseurl + '/ShopRecord' + '/find',

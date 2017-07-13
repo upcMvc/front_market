@@ -10,7 +10,6 @@ import Shopcar from '@/components/Shopcar'
 import Reg from '@/components/Reg'
 import Buyed from '@/components/Buyed'
 import Perinfo from '@/components/Perinfo'
-import MapTest from '@/components/MapTest'
 import History from '@/components/History'
 import Sell from '@/components/Sell'
 
@@ -64,14 +63,15 @@ export default new Router({
       component: Perinfo
     },
     {
+      path: '*',
+      redirect:'/index'
+    },
+    {
       path: '/buyed',
       name: 'buyed',
       component: Buyed
-    },{
-      path:'/mapTest',
-      name:'mapTest',
-      component:MapTest
-    },{
+    },
+    {
       path:'/history',
       name:'history',
       component:History

@@ -13,7 +13,7 @@ body {
 
 .feedify {
   padding: 0 20px;
-  background: #fff
+  background: white;
 }
 
 .feedify .feedify-item {
@@ -24,7 +24,7 @@ body {
 
 .feedify .feedify-item .feedify-item-header {
   padding: 20px 0;
-  background: #fff;
+  background: white;
   z-index: 100
 }
 

@@ -128,6 +128,7 @@
             //let email = localStorage.getItem("email");
             localStorage.setItem("id",response.data.user.id);
             localStorage.setItem("phone",response.data.user.phone);
+            localStorage.setItem("avatar",response.data.user.avatar);
             this.$router.push({name: 'index'})
           }
         }, () => {

@@ -14,6 +14,11 @@ const API = {
   shoppingCart: baseurl + "/ShoppingCart",//购物车相关操作api
   shoppcartCreat: baseurl + '/ShoppingCart' + '/create',
   history:baseurl+"/history",//历史记录相关操作API
+  findShopRecord: baseurl + '/ShopRecord' + '/find',
+  getGoodImage: baseurl + '/getGoodImage',
+  getCommentn: baseurl + '/ShopRecord' + '/getcommentn'
+
+
 };
 
 module.exports = API;

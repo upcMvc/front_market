@@ -126,8 +126,9 @@
             //console.log(token);
             localStorage.setItem("email", response.data.user.email);
             //let email = localStorage.getItem("email");
-            localStorage.setItem("id", response.data.user.id);
-            localStorage.setItem("phone", response.data.user.phone);
+            localStorage.setItem("id",response.data.user.id);
+            localStorage.setItem("phone",response.data.user.phone);
+            this.$router.push({name: 'index'})
           }
         }, () => {
           console.log('error !')
@@ -151,21 +152,4 @@
     text-align: center;
   }
 
-  h1, h2 {
-    font-weight: normal;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: Coral;
-  }
 </style>

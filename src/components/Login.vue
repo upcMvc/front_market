@@ -4,7 +4,6 @@
       <div class="container">
         <form class="form-horizontal">
           <div class="form-group fontH">
-            <!--<label  class="col-sm-4 control-label">Welcome to shopping~</label>-->
             <h1>Shopping now!</h1>
           </div>
           <div class="form-group">
@@ -21,7 +20,6 @@
           </div>
           <div class="form-group">
             <label class="col-sm-6 control-label fontC">验证码</label>
-            <input type="text" style="display: none;" v-model="tncodeSucess">
             <div class="col-sm-6">
               <input id="tncode" class="tncode" placeholder="验证图片">
             </div>
@@ -29,8 +27,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-6 col-sm-6 fontC">
-              <!--<button type="submit" class="btn btn-default">Sign in</button>-->
-              <button type="button" id="reg-button" v-on:click="submit">登录</button>
+              <button type="button" id="reg-button" @click="sub">登录</button>
             </div>
           </div>
           <div class="formM">
@@ -59,6 +56,7 @@
                   </div>
                 </div>
 
+<<<<<<< HEAD
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -67,6 +65,8 @@
             </div>
           </div>
         </div>
+=======
+>>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
       </div>
 
       <ul class="bg-bubbles">
@@ -93,39 +93,63 @@
     name: 'login',
     data () {
       return {
-        msg: 'Welcome to Your Vue.js App',
         username: '',
         password: '',
-        tncodeSucess: ''
       }
     },
     mounted() {
       tncode.init();
     },
     methods: {
-      submit (){
+      sub (){
+        let tn = document.getElementById('tncode');
+        if(tn.value != '验证成功'){
+            alert('请输入验证码');
+            return false;
+        }
+
+
         let postData = {
           username: this.username,
           password: this.password
         };
         this.$http.post(API.logIn, postData).then((response) => {
           if (response.data.id == -1) {
+<<<<<<< HEAD
             alert(response.data.id);
+=======
+            alert(response.data.message);
+          } else {
+            //console.log(response.data);
+            localStorage.setItem("username", response.data.user.username);
+            //let username = localStorage.getItem("username");
+            //console.log(username);
+            localStorage.setItem("token", response.data.token);
+            //let token = localStorage.getItem("token");
+            //console.log(token);
+            localStorage.setItem("email",response.data.user.email);
+            //let email = localStorage.getItem("email");
+            localStorage.setItem("id",response.data.user.id);
+            localStorage.setItem("phone",response.data.user.phone);
+>>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
           }
         }, () => {
           console.log('error !')
         })
+<<<<<<< HEAD
       },
       reg(){
         this.$router.push({path: '/reg'})
+=======
+>>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
       }
     }
-
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+<<<<<<< HEAD
 
   @import "../assets/login/css/styles.css";
   @import "../assets/login/css/tncode.css";
@@ -151,4 +175,9 @@
   a {
     color: Coral;
   }
+=======
+  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+  @import "../assets/login/css/styles.css";
+  @import "../assets/login/css/tncode.css";
+>>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
 </style>

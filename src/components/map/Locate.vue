@@ -47,7 +47,7 @@
         let map = new BMap.Map("allmap")
         let point = new BMap.Point(self.longitude, self.latitude)
 
-        map.centerAndZoom(point,11)
+        map.centerAndZoom(point,12)
         map.enableScrollWheelZoom()
 
 
@@ -60,8 +60,6 @@
             self.addComp = rs.addressComponents
             self.$emit('mapReturn',pt,self.addComp)
             console.log(self.addComp)
-            let addComp = self.addComp
-            alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
           })
         })
       },
@@ -87,7 +85,7 @@
 
 <style scoped>
   #allmap{
-    width: 500px;
+    width: 100%;
     height: 500px;
     margin:0;font-family:"微软雅黑";
   }

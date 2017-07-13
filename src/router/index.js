@@ -11,6 +11,7 @@ import Reg from '@/components/Reg'
 import Buyed from '@/components/Buyed'
 import Perinfo from '@/components/Perinfo'
 import MapTest from '@/components/MapTest'
+import Seller from '@/components/Seller'
 
 
 Vue.use(Router)
@@ -68,6 +69,10 @@ export default new Router({
       path:'/mapTest',
       name:'mapTest',
       components:MapTest
+    },{
+      path:'/seller',
+      name:'seller',
+      components:Seller
     }
   ]
 })

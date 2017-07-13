@@ -1,7 +1,6 @@
 <template>
   <div>
     <Locate v-on:mapReturn="addr"></Locate>
-    <button @click="addr()">地址</button>
   </div>
 </template>
 
@@ -24,9 +23,6 @@
       addr(pt,addCom){
           console.log(pt)
         console.log(addCom)
-//        this.$on('mapReturn',(pt)=>{
-//            console.log(pt)
-//        })
       }
     }
   }

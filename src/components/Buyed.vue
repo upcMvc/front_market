@@ -1,19 +1,13 @@
 <template>
-
   <div>
     <div class="row bag">
-
       <div class="col-md-8 col-md-offset-2">
         <div class="feedify">
           <section class="feedify-item">
             <header class="feedify-item-header clearfix">
               <img alt="" src="../assets/perinfo/img/user-2.jpg" class="img-circle pull-left">
               <h1 class="pull-left">李一一</h1>
-
             </header>
-
-
-
             <footer>
               <div class="actions">
                 <img alt="" src="../assets/perinfo/img/1.jpg">
@@ -41,23 +35,17 @@
               </ul>
             </footer>
           </section>
-
         </div>
       </div>
     </div>
     <!--<p><img src="../assets/perinfo/img/bg-1.jpg" alt="picture" class="picmove"></p>-->
-
   </div>
 </template>
-
-
 <script>
   import $ from 'jquery'
   $(function() {
     $('.feedify').feedify();
   });
-
-
   !function (e) {
     e.fn.feedify = function () {
       var i = this;
@@ -81,24 +69,18 @@
       })
     }
   }(jQuery);
-
-
   export default {
-
     name: 'hello',
     data () {
       return {}
     },
     created(){
-
     },
     components: {},
     methods: {
-
     }
   }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
@@ -116,6 +98,4 @@
     font-family: "akkurat", sans-serif;
     margin-top: 10px;
   }
-
-
 </style>

@@ -8,7 +8,7 @@
                 <img alt="" src="../assets/perinfo/img/user-2.jpg" class="img-circle pull-left">
                 <h1 class="pull-left">李一一</h1>
                 <h2 class="pull-right hidden-xs">
-                  <button class="btn btn-default" data-toggle="modal" data-target="#exampleModal">修改个人信息</button>
+                  <button class="btn btn-default" data-toggle="modal" data-target="#info">修改个人信息</button>
                 </h2>
               </header>
               <div class="feedify-item-body">
@@ -22,18 +22,18 @@
         </div>
       </div>
     <!--模态框-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+            <h4 class="modal-title" id="exampleModalLabel">修改个人信息</h4>
           </div>
           <div class="modal-body">
             <form>
               <div class="form-group">
                 <p class="text-left p">姓名:</p>
-                <input type="text" class="form-control" >
+                <input type="text" class="form-control">
               </div>
               <div class="form-group">
                 <p class="text-left p">手机号:</p>

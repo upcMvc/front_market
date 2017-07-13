@@ -1,8 +1,6 @@
 <template>
   <div class="hello">
     <Navs></Navs>
-
-
   </div>
 </template>
 

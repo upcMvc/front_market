@@ -173,7 +173,6 @@
             userId: userId
           }
         }).then((response) => {
-
             console.log(response.data)
           this.productList = response.body;
           console.log(response.body[0].id)
@@ -185,11 +184,18 @@
             this.productList[i].productImage =  response.body[i].imgPath
             this.productList[i].productImage =  response.body[i].describes
           }
+
+          this.productList = response.body;
+          console.log(data);
+          alert(data[0].id);
         }, () => {
           console.log("error");
         })
       },
       cartView: function () {
+
+        let _this = this;
+        _this.productList = _this.initGet();
 //        alert(_this.productList);
 //        _this.productList = [
 //          {
@@ -223,7 +229,9 @@
         this.caleTotalPrice();
       },
       selectedProduct: function (item) { // 接收的参数
-        if (typeof item.checked === 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
+
+
+        if (typeof item.checked == 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
           Vue.set(item, "checked", true);
         } else {
           item.checked = !item.checked;

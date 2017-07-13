@@ -27,8 +27,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-6 col-sm-6 fontC">
-              <!--<button type="submit" class="btn btn-default">Sign in</button>-->
-              <button type="button" id="reg-button" v-on:click="sub">登录</button>
+              <button type="button" id="reg-button" @click="sub">登录</button>
             </div>
           </div>
         </form>

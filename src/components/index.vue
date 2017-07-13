@@ -3,8 +3,8 @@
     <Navs></Navs>
     <div class="product" v-for="(info,index) in goodsinfo">
       <div class="make3D">
-        <img src="../assets/good/img/8.jpg" alt="">
-        <!--<img v-bind:src="info.imgPath" alt="">-->
+        <!--<img src="../assets/good/img/8.jpg" alt="">-->
+        <img v-bind:src="info.imgPath" alt="">
         <div class="stats">
           <div class="stats-container">
             <span class="product_price">¥{{ info.price }}</span>

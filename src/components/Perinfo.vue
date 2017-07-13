@@ -27,13 +27,13 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+            <h4 class="modal-title" id="exampleModalLabel">修改个人信息</h4>
           </div>
           <div class="modal-body">
             <form>
               <div class="form-group">
                 <p class="text-left p">姓名:</p>
-                <input type="text" class="form-control" >
+                <input type="text" class="form-control">
               </div>
               <div class="form-group">
                 <p class="text-left p">手机号:</p>

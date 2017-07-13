@@ -115,9 +115,7 @@
         };
         this.$http.post(API.logIn, postData).then((response) => {
           if (response.data.id == -1) {
-<<<<<<< HEAD
             alert(response.data.id);
-=======
             alert(response.data.message);
           } else {
             //console.log(response.data);
@@ -131,17 +129,13 @@
             //let email = localStorage.getItem("email");
             localStorage.setItem("id",response.data.user.id);
             localStorage.setItem("phone",response.data.user.phone);
->>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
           }
         }, () => {
           console.log('error !')
         })
-<<<<<<< HEAD
       },
       reg(){
         this.$router.push({path: '/reg'})
-=======
->>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
       }
     }
   }
@@ -149,7 +143,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-<<<<<<< HEAD
 
   @import "../assets/login/css/styles.css";
   @import "../assets/login/css/tncode.css";
@@ -175,9 +168,4 @@
   a {
     color: Coral;
   }
-=======
-  @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
-  @import "../assets/login/css/styles.css";
-  @import "../assets/login/css/tncode.css";
->>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
 </style>

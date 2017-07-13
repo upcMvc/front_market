@@ -93,6 +93,7 @@
             //let email = localStorage.getItem("email");
             localStorage.setItem("id",response.data.user.id);
             localStorage.setItem("phone",response.data.user.phone);
+            this.$router.push({name: 'index'})
           }
         }, () => {
           console.log('error !')

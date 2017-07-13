@@ -24,7 +24,6 @@
               <input type="password" placeholder="Confirm Password" v-model="confirmPassword">
             </div>
           </div>
-
           <div class="form-group">
             <label class="col-sm-4 control-label fontC">邮箱</label>
             <div class="col-sm-8">
@@ -37,7 +36,6 @@
               <input type="text" placeholder="Mobile" v-model="mobile">
             </div>
           </div>
-
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8 fontC">
               <button type="submit" @click="submit()">注册</button>

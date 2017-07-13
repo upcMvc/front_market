@@ -12,6 +12,7 @@ const API = {
   GoodsInfo: baseurl + '/goods/findAll',
   reg: baseurl + "/user/regist",//用户注册api
   shoppingCart: baseurl + "/ShoppingCart",//购物车相关操作api
+  shoppcartCreat: baseurl + '/ShoppingCart' + '/create'
 };
 
 module.exports = API;

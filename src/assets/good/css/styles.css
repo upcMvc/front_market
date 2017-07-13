@@ -126,9 +126,9 @@ div.large .make3D{
             transition: all 200ms ease-out;
 }
 .stats-container .product_name{
-	font-size: 15px;
-    color: #393c45;
-    font-weight: 700;
+	font-size: 25px;
+  color: #393c45;
+  font-weight: 700;
 }
 .stats-container p{
 	font-size:15px;
@@ -138,7 +138,7 @@ div.large .make3D{
 .stats-container .product_price{
 	float:right;
 	color:#5ff7d2;
-	font-size:22px;
+	font-size:45px;
 	font-weight:600;
 }
 .image_overlay{

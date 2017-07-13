@@ -87,7 +87,7 @@
                 <!--第五列-->
                 <div class="cart-tab-5">
                   <div class="cart-item-opration">
-                    <span class="glyphicon glyphicon-trash" @click="del(item,index)"></span>
+                    <span class="glyphicon glyphicon-trash" @click="deleteIt(item,index)"></span>
                   </div>
                 </div>
               </li>
@@ -159,9 +159,6 @@
         this.cartView();
       });
     },
-    created(){
-//        this.initGet()
-    },
     methods: {
 //      initGet(){
 //        let self = this;
@@ -221,8 +218,6 @@
             this.productList[i].productImage =  response.body[i].imgPath
             this.productList[i].productImage =  response.body[i].describes
           }
-          console.log(data);
-          alert(data[0].id);
         }, () => {
           console.log("error");
         })
@@ -270,14 +265,26 @@
           }
         });
       },
-      del(item, index){
-        console.log(item.productId);//id
-        this.productList.splice(index, 1)
-        //删除数据给后台
-      }
+      deleteIt(item, index) {
+        this.productList.splice(index, 1);
+        console.log(item.shopcarId);//id
+
+        let userId = localStorage.getItem("id");
+        let token = localStorage.getItem("token");
+        let postData = {
+          Authorization: token,
+          userId: userId,
+          id: item.shopcarId
+        };
+        this.$http.post(API.shoppingCart + "/delete", postData).then((response) => {
+          alert("删除成功");
+          console.log(response.data);
+        }, () => {
+          console.log("删除购物车商品失败");
+        });
+      },
+      //删除数据给后台
     }
-
-
   }
 </script>
 

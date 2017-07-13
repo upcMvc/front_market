@@ -12,8 +12,19 @@ const API = {
   GoodsInfo: baseurl + '/goods/findAll',
   reg: baseurl + "/user/regist",//用户注册api
   shoppingCart: baseurl + "/ShoppingCart",//购物车相关操作api
+  forget: baseurl + "/user/forget_password",
+  getAddrFormBack: baseurl + "/address/findbyuserid",
+  setAddr:baseurl+"/address/create",
+  updatePerInfor:baseurl+"/user/reset_user",
+  resetPassword: baseurl + '/user/reset_password',
+  setAvatar:baseurl+'/user/setAvatar',
   shoppcartCreat: baseurl + '/ShoppingCart' + '/create',
   history:baseurl+"/history",//历史记录相关操作API
+  findShopRecord: baseurl + '/ShopRecord' + '/find',
+  getGoodImage: baseurl + '/getGoodImage',
+  getCommentn: baseurl + '/ShopRecord' + '/getcommentn'
+
+
 };
 
 module.exports = API;

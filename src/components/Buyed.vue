@@ -5,10 +5,10 @@
         <div class="feedify">
           <section class="feedify-item">
             <header class="feedify-item-header clearfix">
-              <img alt="" src="../assets/perinfo/img/user-2.jpg" class="img-circle pull-left">
-              <h1 class="pull-left">李一一</h1>
+              <img alt="" v-bind:src="avatar" class="img-circle pull-left">
+              <h1 class="pull-left">{{ username }}</h1>
             </header>
-            <footer>
+            <footer v-for="i in 5">
               <div class="actions">
                 <img alt="" src="../assets/perinfo/img/1.jpg">
                 <ul class="list-inline">
@@ -43,7 +43,8 @@
 </template>
 <script>
   import $ from 'jquery'
-  $(function() {
+  import API from '../config/req'
+  $(function () {
     $('.feedify').feedify();
   });
   !function (e) {
@@ -70,14 +71,58 @@
     }
   }(jQuery);
   export default {
-    name: 'hello',
+    name: 'buyed',
     data () {
-      return {}
+      return {
+        username: '',
+        allInfor: [],
+        avatar: localStorage.getItem('avatar')
+      }
     },
     created(){
+      let self = this;
+      this.username = localStorage.getItem('username');
+    },
+    mounted(){
+
+      this.initData();
     },
     components: {},
     methods: {
+      initData(){
+
+          console.log(localStorage.getItem('avatar'))
+        let token = localStorage.getItem('token');
+        let userid = localStorage.getItem('id');
+        let sendData = {
+          Authorization: token,
+          userId: userid
+        };
+        let self = this;
+        this.$http.get(API.findShopRecord, {params: sendData}).then((response) => {
+          let tempInfo = response.data;
+          for (let i = 0; i < tempInfo.length; i++) {
+            let goodId = tempInfo[i].goodId;
+            let sendData = {
+              Authorization: token,
+              goodId: goodId
+            };
+            self.$http.get(API.getGoodImage, {params: sendData}).then((response) => {
+              tempInfo[i].imgPath = response.bodyText
+            }, () => {
+            });
+
+            self.$http.get(API.getCommentn, {params: sendData}).then((response) => {
+              tempInfo[i].comment = response.data;
+            }, () => {
+            });
+          }
+
+          self.allInfor = tempInfo;
+          console.log(tempInfo)
+         }, () => {
+        });
+      }
     }
   }
 </script>
@@ -89,12 +134,14 @@
   @import "../assets/perinfo/css/feedify-theme.min.css";
   .bag{
     background: silver ;
+
     /*background: -webkit-linear-gradient(top left,  lightgray 0%, LightSlateGray  100%);*/
     /*background: linear-gradient(to bottom right, lightgray   100%, LightSlateGray  0%);*/
-    z-index:0;
+    z-index: 0;
     margin-top: -60px;
   }
-  .fontA{
+
+  .fontA {
     font-family: "akkurat", sans-serif;
     margin-top: 10px;
   }

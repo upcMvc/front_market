@@ -8,22 +8,22 @@
             <a href="#" ><i class="fa fa-fw fa-home"></i>主页</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-folder"></i>Page one</a>
+            <a href="#"><i class="fa fa-fw fa-folder"></i>日常用品</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-file-o"></i>Second page</a>
+            <a href="#"><i class="fa fa-fw fa-file-o"></i>零食</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-cog"></i>Third page</a>
+            <a href="#"><i class="fa fa-fw fa-cog"></i>水果</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-bank"></i>Page four</a>
+            <a href="#"><i class="fa fa-fw fa-bank"></i>饮品</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-dropbox"></i>Page 5</a>
+            <a href="#"><i class="fa fa-fw fa-dropbox"></i>个人信息</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-twitter"></i>Last page</a>
+            <a href="#"><i class="fa fa-fw fa-twitter"></i>历史</a>
           </li>
         </ul>
       </nav>

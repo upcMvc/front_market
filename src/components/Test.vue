@@ -1,13 +1,13 @@
 <template>
-  <div id="sell">
-    <Locate v-on:mapReturn="addr"></Locate>
+  <div>
+    <Pic v-on:picInfo="getPic"></Pic>
   </div>
 </template>
 
 <script>
-  import Locate from './map/Locate.vue'
+  import Pic from './pic/Pic.vue'
   export default {
-    name:'sell',
+    name:'locate',
     data(){
       return{
 
@@ -17,21 +17,18 @@
 
     },
     components:{
-      Locate
+      Pic
     },
     methods:{
-      addr(pt,addCom){
-        console.log(pt)
-        console.log(addCom)
+      getPic(format,base){
+        console.log("gerPic")
+        console.log(format)
+        console.log(base)
       }
     }
   }
 </script>
 
 <style scoped>
-  #allmap{
-    width: 500px;
-    height: 500px;
-    margin:0;font-family:"微软雅黑";
-  }
+
 </style>

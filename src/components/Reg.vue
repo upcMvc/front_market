@@ -100,6 +100,7 @@
             localStorage.setItem("phone", response.data.user.phone);
             let phone = localStorage.getItem("phone");
             console.log("phone: " + phone);
+            localStorage.setItem("avatar",response.data.user.avatar);
           }
         }, () => {
           console.log("error")

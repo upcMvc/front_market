@@ -30,15 +30,17 @@
               <button type="button" id="reg-button" @click="sub">登录</button>
             </div>
           </div>
-          <div class="formM">
-            <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#info"
-                    style="margin-left: 325px">
-              忘记密码
-            </button>
-            <button type="button" class="btn btn-primary btn-lg "
-                    style="margin-left: 325px">
-              注册
-            </button>
+
+          <div class="form-group">
+            <div class="col-sm-offset-6 col-sm-6 fontC">
+              <button type="button" class="btn btn-sm col-sm-4" data-toggle="modal" data-target="#info">
+                  忘记密码
+              </button>
+              <div class="col-sm-4"> </div>
+              <button type="button" class="btn btn-sm col-sm-4" @click="reg()">
+                注册
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -63,19 +65,15 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">请输入邮箱，系统会自动发送新的密码</h4>
+            <h4 class="modal-title" id="exampleModalLabel">请输入用户名，系统会自动发送新的密码</h4>
           </div>
           <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <p class="text-left p">邮箱:</p>
-                <input type="text" class="form-control" >
-              </div>
-            </form>
+                <h4 class="text-left h4">用户名:</h4>
+                <input type="text" class="form-control" v-model="forgetName">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            <button type="button" class="btn btn-primary">提交</button>
+            <button type="button" class="btn btn-primary" @click="forget()">提交</button>
           </div>
         </div>
       </div>
@@ -92,10 +90,11 @@
       return {
         username: '',
         password: '',
+        forgetName:''
       }
     },
     created(){
-      this.$router.push({path: '/login'})
+
     },
     mounted() {
       tncode.init();
@@ -107,8 +106,6 @@
           alert('请输入验证码');
           return false;
         }
-
-
         let postData = {
           username: this.username,
           password: this.password
@@ -131,11 +128,28 @@
             this.$router.push({name: 'index'})
           }
         }, () => {
-          console.log('error !')
+          console.log('error!')
         })
       },
       reg(){
         this.$router.push({path: '/reg'})
+      },
+
+
+      //发送用户名
+      forget(){
+        let self = this
+        self.$http.get(API.forget+'?userName='+self.forgetName).then((response)=>{
+            alert("提交成功")
+          console.log(response.body)
+          if(response.body.id == -1){
+                alert("用户名不存在")
+          }else {
+              alert("请查看邮件")
+          }
+        },()=>{
+            alert("链接服务器失败")
+        })
       }
     }
   }
@@ -143,13 +157,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
   @import "../assets/login/css/styles.css";
   @import "../assets/login/css/tncode.css";
-
-  .formM {
-    width: 10px;
-    text-align: center;
-  }
-
 </style>

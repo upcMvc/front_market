@@ -61,6 +61,10 @@ export default new Router({
       component: Perinfo
     },
     {
+      path: '*',
+      redirect:'/index'
+    },
+    {
       path: '/buyed',
       name: 'buyed',
       component: Buyed

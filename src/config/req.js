@@ -12,6 +12,9 @@ const API = {
   GoodsInfo: baseurl + '/goods/findAll',
   reg: baseurl + "/user/regist",//用户注册api
   shoppingCart: baseurl + "/ShoppingCart",//购物车相关操作api
+  forget: baseurl + "/user/forget_password",
+  getAddrFormBack: baseurl + "/address/findbyuserid",
+  resetPassword: baseurl + '/user/reset_password'
 };
 
 module.exports = API;

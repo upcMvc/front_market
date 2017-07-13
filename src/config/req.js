@@ -9,7 +9,7 @@ const API = {
   testGet: 'http://172.20.51.1:8082/dev/user',
   testPost: 'http://172.20.51.1:8082/dev/user',
   logIn: baseurl + '/user/login',
-};
+}
 
 
 

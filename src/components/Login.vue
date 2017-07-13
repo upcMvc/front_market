@@ -118,7 +118,6 @@
             alert(response.data.id);
             alert(response.data.message);
           } else {
-            //console.log(response.data);
             localStorage.setItem("username", response.data.user.username);
             //let username = localStorage.getItem("username");
             //console.log(username);

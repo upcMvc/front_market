@@ -4,7 +4,7 @@
     <div class="container">
       <div class="cart">
         <div class="checkout-title">
-        <span >购物车</span>
+          <span>购物车</span>
         </div>
         <!--商品信息-->
         <div class="item-list-wrap">
@@ -154,7 +154,7 @@
         return "¥ " + value.toFixed(2) + " 元"; // 返回一个¥ 加上2位小数
       }
     },
-    mounted:function () {
+    mounted: function () {
       this.$nextTick(function () {
         this.cartView();
       });
@@ -164,17 +164,23 @@
         let self = this;
         let userId = localStorage.getItem("id");//拿到本地存储的userId
         let token = localStorage.getItem("token");//后台安全认证用token
-        self.$http.get(API.shoppingCart + "/find?" + userId, {params: {Authentication: token}}).then((response) => {
-          console.log(response);
-          return response.body.data;
+        self.$http.get(API.shoppingCart + "/find", {
+          params: {
+            Authorization: token,
+            userId: userId
+          }
+        }).then((response) => {
+          this.productList = response.body;
+          console.log(data);
+          alert(data[0].id);
         }, () => {
           console.log("error");
         })
       },
       cartView: function () {
         let _this = this;
-        _this.productList = initGet();
-        console.log(_this.productList);
+        _this.productList = _this.initGet();
+//        alert(_this.productList);
 //        _this.productList = [
 //          {
 //            "productId": "600100002115",
@@ -246,10 +252,10 @@
         }
         this.caleTotalPrice();
       },
-      selectedProduct:function (item) { // 接收的参数
-        if( typeof item.checked == 'undefined'){ // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
-          Vue.set(item,"checked",true);
-        }else {
+      selectedProduct: function (item) { // 接收的参数
+        if (typeof item.checked == 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
+          Vue.set(item, "checked", true);
+        } else {
           item.checked = !item.checked;
         }
         this.caleTotalPrice();

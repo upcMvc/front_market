@@ -11,14 +11,16 @@ import Reg from '@/components/Reg'
 import Buyed from '@/components/Buyed'
 import Perinfo from '@/components/Perinfo'
 import MapTest from '@/components/MapTest'
-import Seller from '@/components/Seller'
 import History from '@/components/History'
+import Sell from '@/components/Sell'
+
 
 Vue.use(Router)
 Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -68,15 +70,16 @@ export default new Router({
     },{
       path:'/mapTest',
       name:'mapTest',
-      components:MapTest
-    },{
-      path:'/seller',
-      name:'seller',
-      components:Seller
+      component:MapTest
     },{
       path:'/history',
       name:'history',
       component:History
+    },
+    {
+      path: '/sell',
+      name: 'sell',
+      component: Sell
     }
   ]
 })

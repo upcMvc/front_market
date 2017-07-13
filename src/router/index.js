@@ -12,7 +12,7 @@ import Buyed from '@/components/Buyed'
 import Perinfo from '@/components/Perinfo'
 import MapTest from '@/components/MapTest'
 import Seller from '@/components/Seller'
-
+import History from '@/components/History'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -73,6 +73,10 @@ export default new Router({
       path:'/seller',
       name:'seller',
       components:Seller
+    },{
+      path:'/history',
+      name:'history',
+      component:History
     }
   ]
 })

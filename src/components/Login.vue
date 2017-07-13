@@ -108,7 +108,6 @@
           return false;
         }
 
-
         let postData = {
           username: this.username,
           password: this.password

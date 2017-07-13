@@ -125,7 +125,7 @@
   @import "../assets/perinfo/css/feedify.min.css";
   @import "../assets/perinfo/css/feedify-theme.min.css";
   .bag{
-    background: dimgray ;
+    background: silver ;
     z-index:0;
     margin-top: -60px;
     height: 1000px;

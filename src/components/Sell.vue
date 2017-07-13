@@ -126,7 +126,7 @@
   @import "../assets/perinfo/css/feedify.min.css";
   @import "../assets/perinfo/css/feedify-theme.min.css";
   .bag{
-    background: dimgray ;
+    background: silver ;
     /*background: -webkit-linear-gradient(top left,  lightgray 0%, LightSlateGray  100%);*/
     /*background: linear-gradient(to bottom right, lightgray   100%, LightSlateGray  0%);*/
     z-index:0;

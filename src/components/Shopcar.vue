@@ -4,7 +4,7 @@
     <div class="container">
       <div class="cart">
         <div class="checkout-title">
-          <span >购物车</span>
+          <span>购物车</span>
         </div>
         <!--商品信息-->
         <div class="item-list-wrap">
@@ -32,19 +32,22 @@
                     <!--v-bind:class="" 里面一定是 一个对象或者是数组的形式
                      v-bind:class="{ }"  v-bind:class="[ ]"
                      -->
-                    <a href="javascript:;" class="item-check-btn" v-bind:class="{'check':item.checked} " @click="selectedProduct(item)">
-                      <svg class="icon icon-ok"  fill="Black"><use xlink:href="#icon-ok"></use></svg>
+                    <a href="javascript:;" class="item-check-btn" v-bind:class="{'check':item.checked} "
+                       @click="selectedProduct(item)">
+                      <svg class="icon icon-ok" fill="Black">
+                        <use xlink:href="#icon-ok"></use>
+                      </svg>
                     </a>
                   </div>
                   <!--图片-->
                   <div class="cart-item-pic">
-                    <img  v-bind:src="item.productImage" alt="">
+                    <img v-bind:src="item.productImage" alt="">
                     <!--<img src="{{item.productImage}}" alt=""> 会在浏览器加载时 vue实例没有渲染完是，把它当作图片路径来加载-->
                   </div>
                   <!--图片后面的文字-->
                   <div class="cart-item-title">
                     <div class="item-name">
-                      {{ item.productName + "--我是index的值"+index}}
+                      {{ item.productName + "--我是index的值" + index}}
                     </div>
                   </div>
                   <!-- 赠送-->
@@ -78,7 +81,7 @@
                 <!--第四列-->
                 <div class="cart-tab-4">
                   <!-- 总金额是当前的单价乘以商品总数-->
-                  <div class="item-price-total">{{item.productPrice*item.productQuentity | formatMoney}}</div>
+                  <div class="item-price-total">{{item.productPrice * item.productQuentity | formatMoney}}</div>
 
                 </div>
                 <!--第五列-->
@@ -114,8 +117,8 @@
             <div class="item-total">
               总价：<span class="total-price"> {{ totalMoney }}</span>
             </div>
-            <div  class="next-btn-wrap">
-              <a href="address.html" class="btn btn--red" > 结账 </a>
+            <div class="next-btn-wrap">
+              <a href="address.html" class="btn btn--red"> 结账 </a>
             </div>
           </div>
         </div>
@@ -136,84 +139,84 @@
     name: 'shopcar',
     data () {
       return {
-        totalMoney:0,         // 总金额
-        productList:[],       // 定义一个数组
-        checkAllFlag:false,   // 定义是否全选
-        curProduct:'',        // 保存删除的商品信息
-        delFlag:false
+        totalMoney: 0,         // 总金额
+        productList: [],       // 定义一个数组
+        checkAllFlag: false,   // 定义是否全选
+        curProduct: '',        // 保存删除的商品信息
+        delFlag: false
       }
     },
-    components:{
+    components: {
       Navs
     },
-    filters:{
-      formatMoney:function (value) {
-        return "¥ " + value.toFixed(2) +" 元";
+    filters: {
+      formatMoney: function (value) {
+        return "¥ " + value.toFixed(2) + " 元";
       }
     },
     // 这个方法就相当于jq的ready()方法
-    mounted:function () {
+    mounted: function () {
       this.$nextTick(function () {
         this.cartView();
       });
     },
-    methods:{
-      cartView:function () {
+    methods: {
+      cartView: function () {
         var _this = this;
         _this.productList = [
           {
-            "productId":"600100002115",
-            "productName":"黄鹤楼香烟",
-            "productPrice":19,
-            "productQuentity":1,
-            "productImage":"http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
-            "parts":[
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+            "parts": [
               {
-                "partsId":"10001",
-                "partsName":""
+                "partsId": "10001",
+                "partsName": ""
               },
               {
-                "partsId":"10002",
-                "partsName":""
+                "partsId": "10002",
+                "partsName": ""
               }
             ]
           },
           {
-            "productId":"600100002120",
-            "productName":"加多宝",
-            "productPrice":8,
-            "productQuentity":5,
-            "productImage":"http://att2.citysbs.com/hangzhou/image1/2009/12/04-12/20091204_719e654b12716c0e89ccWlbSHzl1q43v.jpg",
-            "parts":[
+            "productId": "600100002120",
+            "productName": "加多宝",
+            "productPrice": 8,
+            "productQuentity": 5,
+            "productImage": "http://att2.citysbs.com/hangzhou/image1/2009/12/04-12/20091204_719e654b12716c0e89ccWlbSHzl1q43v.jpg",
+            "parts": [
               {
-                "partsId":"20001",
-                "partsName":""
+                "partsId": "20001",
+                "partsName": ""
               }
             ]
           },
           {
-            "productId":"600100002130",
-            "productName":"",
-            "productPrice":10,
-            "productQuentity":3,
-            "productImage":"http://image.cn.made-in-china.com/prodzip/000-qeLEpStIJKgl.jpg",
-            "parts":[
+            "productId": "600100002130",
+            "productName": "",
+            "productPrice": 10,
+            "productQuentity": 3,
+            "productImage": "http://image.cn.made-in-china.com/prodzip/000-qeLEpStIJKgl.jpg",
+            "parts": [
               {
-                "partsId":"20001",
-                "partsName":""
+                "partsId": "20001",
+                "partsName": ""
               }
             ]
           },
           {
-            "productId":"600100002140",
-            "productName":"中华香烟",
-            "productPrice":100,
-            "productQuentity":1,
-            "productImage":"http://pic19.nipic.com/20120209/6322264_105904992000_2.jpg",
-            "parts":[
+            "productId": "600100002140",
+            "productName": "中华香烟",
+            "productPrice": 100,
+            "productQuentity": 1,
+            "productImage": "http://pic19.nipic.com/20120209/6322264_105904992000_2.jpg",
+            "parts": [
               {
-                "partsId":"10001",
-                "partsName":""
+                "partsId": "10001",
+                "partsName": ""
               }
             ]
           }
@@ -221,51 +224,51 @@
 
       },
       // 点击 加减 的方法
-      changeMoney:function (product, way) {
-        if( way >0 ){ //当 way>0 就是点击的 +
+      changeMoney: function (product, way) {
+        if (way > 0) { //当 way>0 就是点击的 +
           product.productQuentity++; // 数量增加  就相当于 item 的productQuentity
-        }else {
+        } else {
           product.productQuentity--; // 否则数量减少
-          if(product.productQuentity <0 ){ //
-            product.productQuentity =0;
+          if (product.productQuentity < 0) { //
+            product.productQuentity = 0;
           }
         }
         this.caleTotalPrice();
       },
-      selectedProduct:function (item) { // 接收的参数
-        if( typeof item.checked == 'undefined'){ // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
-          Vue.set(item,"checked",true);
-        }else {
+      selectedProduct: function (item) { // 接收的参数
+        if (typeof item.checked == 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
+          Vue.set(item, "checked", true);
+        } else {
           item.checked = !item.checked;
         }
         this.caleTotalPrice();
       },
       // 定义全选 函数
-      checkAll:function (flag) {
-        this.checkAllFlag = flag ;
+      checkAll: function (flag) {
+        this.checkAllFlag = flag;
         var _this = this;
-        this.productList.forEach(function (item,index) { // 用forEach来遍历 productList
-          if(typeof item.checked == 'undefined'){ // 先判断 是否有这个 item.checked
-            Vue.set(item,"checked",_this.checkAllFlag);  // 没有 先注册
-          }else {
+        this.productList.forEach(function (item, index) { // 用forEach来遍历 productList
+          if (typeof item.checked == 'undefined') { // 先判断 是否有这个 item.checked
+            Vue.set(item, "checked", _this.checkAllFlag);  // 没有 先注册
+          } else {
             item.checked = _this.checkAllFlag;
           }
         });
         this.caleTotalPrice();
       },
       // 计算选中商品的总价
-      caleTotalPrice:function () {
+      caleTotalPrice: function () {
         var _this = this;
         this.totalMoney = 0;
-        this.productList.forEach(function (item,index) {
-          if(item.checked){
+        this.productList.forEach(function (item, index) {
+          if (item.checked) {
             _this.totalMoney += item.productPrice * item.productQuentity;
           }
         });
       },
-      del(item,index){
+      del(item, index){
         console.log(item.productId)//id
-        this.productList.splice(index,1)
+        this.productList.splice(index, 1)
         //删除数据给后台
       }
     }
@@ -280,16 +283,19 @@
   @import "../assets/shopcar/css/base2.css";
   @import "../assets/shopcar/css/checkout.css";
   @import "../assets/shopcar/css/modal.css";
-  .quentity input{
+
+  .quentity input {
     width: 40px;
     padding: 5px 10px;
     text-align: center;
   }
-  .quentity > a{
+
+  .quentity > a {
     color: white;
     text-decoration: none;
   }
-  .quentity > a:hover{
+
+  .quentity > a:hover {
     color: white;
     text-decoration: none;
   }

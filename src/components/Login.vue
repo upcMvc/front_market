@@ -31,44 +31,17 @@
             </div>
           </div>
           <div class="formM">
-            <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 325px">
-             忘记密码
+            <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#info"
+                    style="margin-left: 325px">
+              忘记密码
             </button>
-          <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 325px">
-            注册
-          </button>
-      </div>
-
-
-        </form>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">重置密码</h4>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  输入邮箱账号，将给您发送重置密码的邮件
-                  <div class="col-sm-8">
-                    <input type="text" placeholder="Email" v-model="email" style="margin-left: 175px">
-                  </div>
-                </div>
-
-<<<<<<< HEAD
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">发送</button>
-              </div>
-            </div>
+            <button type="button" class="btn btn-primary btn-lg "
+                    style="margin-left: 325px">
+              注册
+            </button>
           </div>
-        </div>
-=======
->>>>>>> 4ea4a90096dfe5eecf18448cdc8cf9f9ce74058f
+        </form>
       </div>
-
       <ul class="bg-bubbles">
         <li></li>
         <li></li>
@@ -83,6 +56,30 @@
       </ul>
     </div>
     <p><img src="../assets/login/img/9.jpg" alt="picture" class="picmove"></p>
+
+    <!--模态框-->
+    <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="exampleModalLabel">请输入邮箱，系统会自动发送新的密码</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <p class="text-left p">邮箱:</p>
+                <input type="text" class="form-control" >
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary">提交</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -97,15 +94,18 @@
         password: '',
       }
     },
+    created(){
+      this.$router.push({path: '/login'})
+    },
     mounted() {
       tncode.init();
     },
     methods: {
       sub (){
         let tn = document.getElementById('tncode');
-        if(tn.value != '验证成功'){
-            alert('请输入验证码');
-            return false;
+        if (tn.value != '验证成功') {
+          alert('请输入验证码');
+          return false;
         }
 
 
@@ -124,10 +124,10 @@
             localStorage.setItem("token", response.data.token);
             //let token = localStorage.getItem("token");
             //console.log(token);
-            localStorage.setItem("email",response.data.user.email);
+            localStorage.setItem("email", response.data.user.email);
             //let email = localStorage.getItem("email");
-            localStorage.setItem("id",response.data.user.id);
-            localStorage.setItem("phone",response.data.user.phone);
+            localStorage.setItem("id", response.data.user.id);
+            localStorage.setItem("phone", response.data.user.phone);
           }
         }, () => {
           console.log('error !')
@@ -145,7 +145,8 @@
 
   @import "../assets/login/css/styles.css";
   @import "../assets/login/css/tncode.css";
-  .formM{
+
+  .formM {
     width: 10px;
     text-align: center;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="sell">
     <Locate v-on:mapReturn="addr"></Locate>
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script>
   import Locate from './map/Locate.vue'
   export default {
-    name:'locate',
+    name:'sell',
     data(){
       return{
 
@@ -17,11 +17,11 @@
 
     },
     components:{
-        Locate
+      Locate
     },
     methods:{
       addr(pt,addCom){
-          console.log(pt)
+        console.log(pt)
         console.log(addCom)
       }
     }

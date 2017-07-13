@@ -5,7 +5,7 @@
           <div class="feedify">
             <section class="feedify-item">
               <header class="feedify-item-header clearfix">
-                <img alt="" src="../assets/perinfo/img/user-2.jpg" class="img-circle pull-left">
+                <img src="../assets/perinfo/img/user-2.jpg" class="img-circle pull-left" id="head" @click="changeHead()">
                 <h1 class="pull-left">{{username}}</h1>
                 <h2 class="pull-right hidden-xs">
                   <button class="btn btn-default" data-toggle="modal" data-target="#info">修改个人信息</button>
@@ -22,6 +22,7 @@
           </div>
         </div>
       </div>
+    <button id="vis" style="display: none" data-toggle="modal" data-target="#chhead">头像</button>
     <!--模态框-->
     <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
       <div class="modal-dialog" role="document">
@@ -84,11 +85,30 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="chhead" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">更改头像</h4>
+          </div>
+          <div class="modal-body">
+            <Pic v-on:picInfo="getPic"></Pic>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" @click="subpic()">提交</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
   import $ from 'jquery'
   import Locate from './map/Locate.vue'
+  import Pic from './pic/Pic.vue'
   import '../assets/perinfo/js/init'
   export default {
     name: 'perInfo',
@@ -99,7 +119,9 @@
         email:'',
         address:'',
         password:'',
-        repassword:''
+        repassword:'',
+        format:'',
+        base:''
       }
     },
     created(){
@@ -111,10 +133,11 @@
       $('.feedify').feedify();
     },
     components: {
-        Locate
+      Locate,
+      Pic
     },
     methods: {
-        //
+      //拿到用户地址
       getaddr(){
         let data = {
           Authorization: localStorage.getItem("token"),
@@ -125,6 +148,10 @@
         },()=>{
             consoele.log("error")
         })
+      },
+      //提交上传头像
+      subpic(){
+
       },
       addr(pt,addCom){
         console.log(pt)
@@ -146,6 +173,17 @@
       //修改个人信息
       submit(){
 
+      },
+      //组建拿到图片信息
+      getPic(format,base){
+        console.log("gerPic")
+        console.log(format)
+        console.log(base)
+        this.format = format
+        this.base = base
+      },
+      changeHead(){
+        $('#vis').click()
       },
       submitpw(){
           let self = this

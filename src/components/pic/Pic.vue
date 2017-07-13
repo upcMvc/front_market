@@ -12,7 +12,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script >
@@ -20,55 +19,47 @@
     data:function(){
       return{
         imgs:[],
-        test:''
-      }
-    },
-    computed: {
-      studentNo () {
-        return this.$store.state.studentNo;
+        test:'',
+        format:'',
+        base:''
       }
     },
     methods:{
       delete_img(item){
-        console.log(this.imgs)
-        console.log(this.imgs[0].toString().split("image/"))
+//        console.log(this.imgs)
+//        console.log(this.imgs[0].toString().split("image/"))
         console.log(this.imgs[0].toString().split("image/")[1].split(";")[0])
         console.log(this.imgs[0].toString().split("image/")[1].split(";")[1].split(",")[1])
         this.imgs.splice(item,1);
       },
       add_img(event){
-        var reader =new FileReader();
-        var img1=event.target.files[0];
-        reader.readAsDataURL(img1);
-        console.log(reader.result)
-        var that=this;
+        var reader = new FileReader()
+        var img1=event.target.files[0]
+        reader.readAsDataURL(img1)
+        let self = this
         reader.onloadend=function(){
-          that.imgs.push(reader.result)
+          self.imgs.push(reader.result)
         }
+        setTimeout(()=>{
+          self.format = self.imgs[0].toString().split("image/")[1].split(";")[0]
+          self.base = self.imgs[0].toString().split("image/")[1].split(";")[1].split(",")[1]
+          self.$emit('picInfo',self.format,self.base)
+        },500)
+
       }
     }
-
-
   }
 
 </script>
 <style scoped >
   @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
   .finish_room{
-    width: 430px;
     height: auto;
   }
-
   .finish_room2{
-    width: 100%;
-    height: auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #e1e1e1;
   }
-
   .finish_room2 .room_img{
     width: 150px;
     height: 100px;
@@ -88,9 +79,6 @@
     right: 5px;
     bottom:3px;
   }
-
-
-
   .room_add_img{
     width: 148px;
     height: 98px;

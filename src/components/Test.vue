@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Pic></Pic>
+    <Pic v-on:picInfo="getPic"></Pic>
   </div>
 </template>
 
@@ -20,7 +20,11 @@
       Pic
     },
     methods:{
-
+      getPic(format,base){
+        console.log("gerPic")
+        console.log(format)
+        console.log(base)
+      }
     }
   }
 </script>

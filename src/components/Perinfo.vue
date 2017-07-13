@@ -1,8 +1,6 @@
 <template>
-
   <div>
       <div class="row bag">
-
         <div class="col-md-8 col-md-offset-2">
           <div class="feedify">
             <section class="feedify-item">
@@ -15,28 +13,18 @@
                 <h2 class="text-left fontA">手机：17854222222</h2>
                 <h2 class="text-left fontA">邮箱：lacunak@sina</h2>
               </div>
-
-
                 <img alt="" src="../assets/perinfo/img/2.png" class="img-responsive center-block">
-
             </section>
-
           </div>
         </div>
       </div>
-    <!--<p><img src="../assets/perinfo/img/bg-1.jpg" alt="picture" class="picmove"></p>-->
-
     </div>
 </template>
-
-
 <script>
   import $ from 'jquery'
   $(function() {
     $('.feedify').feedify();
   });
-
-
   !function (e) {
     e.fn.feedify = function () {
       var i = this;
@@ -60,28 +48,20 @@
       })
     }
   }(jQuery);
-
-
   export default {
-
     name: 'hello',
     data () {
       return {}
     },
     created(){
-
     },
     components: {},
     methods: {
-
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
-  /*@import "http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800,800italic,700italic";*/
   @import "../assets/perinfo/css/feedify.min.css";
   @import "../assets/perinfo/css/feedify-theme.min.css";
   .bag{
@@ -96,6 +76,4 @@
     margin-top: 10px;
     font-size: 20px;
   }
-
-
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <div class="wrapper">
+    <div class="wrapper ">
       <div class="container">
         <form class="form-horizontal">
           <div class="form-group fontH">
@@ -33,14 +33,40 @@
               <button type="button" id="reg-button" v-on:click="submit">登录</button>
             </div>
           </div>
-        </form>
+          <div class="formM">
+            <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 325px">
+             忘记密码
+            </button>
+          <button type="button" class="btn btn-primary btn-lg " data-toggle="modal" data-target="#myModal" style="margin-left: 325px">
+            注册
+          </button>
+      </div>
 
-        <!--<form class="form">-->
-        <!--<h1>Welcome to shopping~</h1><br>-->
-        <!--<input type="text" placeholder="Username"><br>-->
-        <!--<input type="password" placeholder="Password"><br>-->
-        <!--<button type="submit" id="login-button">Login</button>-->
-        <!--</form>-->
+
+        </form>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">重置密码</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  输入邮箱账号，将给您发送重置密码的邮件
+                  <div class="col-sm-8">
+                    <input type="text" placeholder="Email" v-model="email" style="margin-left: 175px">
+                  </div>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">发送</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <ul class="bg-bubbles">
@@ -83,14 +109,15 @@
           password: this.password
         };
         this.$http.post(API.logIn, postData).then((response) => {
-            if(response.data.id == -1){
-                alert(response.data.id);
-            }
+          if (response.data.id == -1) {
+            alert(response.data.id);
+          }
         }, () => {
-            console.log('error !')
+          console.log('error !')
         })
-
-
+      },
+      reg(){
+        this.$router.push({path: '/reg'})
       }
     }
 
@@ -99,8 +126,13 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
   @import "../assets/login/css/styles.css";
   @import "../assets/login/css/tncode.css";
+  .formM{
+    width: 10px;
+    text-align: center;
+  }
 
   h1, h2 {
     font-weight: normal;

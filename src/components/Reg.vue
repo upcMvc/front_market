@@ -38,7 +38,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8 fontC">
-              <button type="submit" @click="submit()">注册</button>
+              <button type="button" @click="submit()">注册</button>
             </div>
           </div>
         </form>
@@ -70,12 +70,7 @@
         password: '',
         confirmPassword: '',
         email: '',
-<<<<<<< HEAD
         phone: ''
-
-=======
-        mobile: ''
->>>>>>> 3499fc64fe81f265ce45acd1f9a54a07d91636a7
       }
     },
     methods: {
@@ -89,12 +84,8 @@
         let self = this;
         self.$http.post(API.reg, postData).then((response) => {
           console.log(response);
-          if (response.body.message === "用户名已存在") {
-            alert("用户名已存在");
-          } else if (response.body.message === "邮箱已存在") {
-            alert("邮箱已存在");
-          } else if ("手机号已存在") {
-            alert("手机号已存在");
+          if (response.body.id === -1) {
+            alert(response.body.message);
           } else {
             localStorage.setItem("username", response.data.user.username);
             let username = localStorage.getItem("username");

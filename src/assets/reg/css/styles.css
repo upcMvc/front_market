@@ -1,4 +1,3 @@
-@import url(http://fonts.useso.com/css?family=Source+Sans+Pro:200,300);
 * {
   box-sizing: border-box;
   margin: 0;
@@ -75,9 +74,7 @@ body :-ms-input-placeholder {
   transition-timing-function: ease-in-put;
   font-weight: 200;
 }
-.container h2{
-  font-size: 60px;
-}
+
 form {
   padding: 15px 0;
 

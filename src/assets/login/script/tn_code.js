@@ -169,9 +169,6 @@ var tncode = {
       var tn_input = document.getElementById('tncode');
       tn_input.value = '验证成功';
 
-
-
-
       setTimeout(tncode.hide, 3000);
       if (tncode._onsuccess) {
         tncode._onsuccess();
@@ -390,7 +387,7 @@ var tncode = {
     var haddle = {success: tncode._get_code, failure: tncode._send_result_failure};
     var re = new _ajax();
     console.log(tncode._mark_offset);
-    re.request('get', 'http://localhost:1024/tncode.php', haddle);
+    re.request('get', 'http://123.207.144.29/tncode.php', haddle);
 
 
   },

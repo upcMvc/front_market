@@ -3,29 +3,27 @@
     <div id="wrapper" v-bind:class="{'toggled':isClosed}">
       <!-- Sidebar -->
       <nav  id="sidebar-wrapper" role="navigation">
-        <ul class="nav sidebar-nav">
+        <ul class="sidebar-nav">
           <li>
-            <!--style="font-family:YouYuan"-->
             <a href="#" ><i class="fa fa-fw fa-home"></i>主页</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-folder"></i> Page one</a>
+            <a href="#"><i class="fa fa-fw fa-folder"></i>Page one</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-file-o"></i> Second page</a>
+            <a href="#"><i class="fa fa-fw fa-file-o"></i>Second page</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-cog"></i> Third page</a>
-          </li>
-
-          <li>
-            <a href="#"><i class="fa fa-fw fa-bank"></i> Page four</a>
+            <a href="#"><i class="fa fa-fw fa-cog"></i>Third page</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-dropbox"></i> Page 5</a>
+            <a href="#"><i class="fa fa-fw fa-bank"></i>Page four</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-twitter"></i> Last page</a>
+            <a href="#"><i class="fa fa-fw fa-dropbox"></i>Page 5</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-fw fa-twitter"></i>Last page</a>
           </li>
         </ul>
       </nav>
@@ -33,9 +31,9 @@
       <!-- Page Content -->
       <div id="page-content-wrapper">
         <button type="button" class="hamburger animated fadeInLeft" v-bind:class="{'is-closed':!isClosed,'is-open':isClosed}" @click="hamburger_cross()">
-          <span class="hamb-top" style="background: Tomato "></span>
-          <span class="hamb-middle" style="background: Tomato "></span>
-          <span class="hamb-bottom" style="background: Tomato "></span>
+          <span class="hamb-top" style="background: DarkSalmon"></span>
+          <span class="hamb-middle" style="background: DarkSalmon"></span>
+          <span class="hamb-bottom" style="background: DarkSalmon"></span>
         </button>
       </div>
     </div>
@@ -74,7 +72,7 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
   @import '../assets/silder/css/style.css';
 </style>

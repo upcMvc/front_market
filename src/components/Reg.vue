@@ -2,49 +2,43 @@
   <div id="reg">
     <div class="wrapper">
       <div class="container">
-        <!--<h1>Welcome to shopping~</h1>-->
         <form class="form-horizontal">
           <div class="form-group fontH">
-            <!--<label  class="col-sm-4 control-label">Welcome to shopping~</label>-->
             <h1>Join us!</h1>
           </div>
           <div class="form-group">
-            <label class="col-sm-4 control-label fontC" style="font-size: 20px">用户名</label>
+            <label class="col-sm-4 control-label fontC">用户名</label>
             <div class="col-sm-8">
               <input type="text" placeholder="username" v-model="username">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-4 control-label fontC" style="font-size: 20px">密码</label>
+            <label class="col-sm-4 control-label fontC">密码</label>
             <div class="col-sm-8">
               <input type="password" placeholder="Password" v-model="password">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-4 control-label fontC" style="font-size: 20px">确认密码</label>
+            <label class="col-sm-4 control-label fontC">确认密码</label>
             <div class="col-sm-8">
               <input type="password" placeholder="Confirm Password" v-model="confirmPassword">
             </div>
           </div>
-
           <div class="form-group">
-            <label class="col-sm-4 control-label fontC" style="font-size: 20px">邮箱</label>
+            <label class="col-sm-4 control-label fontC">邮箱</label>
             <div class="col-sm-8">
               <input type="text" placeholder="Email" v-model="email">
             </div>
-
           </div>
           <div class="form-group">
-            <label class="col-sm-4 control-label fontC" style="font-size: 20px">手机号</label>
+            <label class="col-sm-4 control-label fontC">手机号</label>
             <div class="col-sm-8">
               <input type="text" placeholder="Mobile" v-model="phone">
             </div>
           </div>
-
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-8 fontC">
-              <!--<button type="submit" class="btn btn-default">Sign in</button>-->
-              <button type="submit" id="reg-button" @click="submit()">注册</button>
+              <button type="submit" @click="submit()">注册</button>
             </div>
           </div>
         </form>
@@ -76,8 +70,12 @@
         password: '',
         confirmPassword: '',
         email: '',
+<<<<<<< HEAD
         phone: ''
 
+=======
+        mobile: ''
+>>>>>>> 3499fc64fe81f265ce45acd1f9a54a07d91636a7
       }
     },
     methods: {
@@ -143,10 +141,8 @@
   @import "../assets/reg/css/styles.css";
 
   .picmove {
-
     margin-top: -30px;
     margin-left: -50%;
-
   }
 
   .fontH {
@@ -158,7 +154,7 @@
   .fontC {
     font-weight: normal;
     font-family: Microsoft YaHei;
-    font-size: 25px;
+    font-size: 20px;
     font-size: medium;
   }
 

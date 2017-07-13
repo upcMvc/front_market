@@ -1,25 +1,37 @@
 <template>
-  <div class="hello">
-    <Test></Test>
+  <div>
+    <Locate v-on:mapReturn="addr"></Locate>
   </div>
 </template>
 
 <script>
-  import Test from './Test.vue'
+  import Locate from './map/Locate.vue'
   export default {
-    name: 'hello',
-    data () {
-      return {
-        msg: 'Welcome to Your Vue.js App'
+    name:'locate',
+    data(){
+      return{
+
       }
     },
+    mounted () {
+
+    },
     components:{
-        Test
+      Locate
+    },
+    methods:{
+      addr(pt,addCom){
+        console.log(pt)
+        console.log(addCom)
+      }
     }
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  #allmap{
+    width: 500px;
+    height: 500px;
+    margin:0;font-family:"微软雅黑";
+  }
 </style>

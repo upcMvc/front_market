@@ -13,7 +13,6 @@ body {
 .nav .open > a:focus {
   background-color: transparent;
 }
-
 #wrapper {
   padding-top: 50px;
   -moz-transition: all 0.5s ease;
@@ -26,7 +25,7 @@ body {
   top:50px;
   z-index: 100;
   height: 500px;
-  background: Tomato           ;
+  background: DarkSalmon      ;
 }
 
 #wrapper.toggled {
@@ -53,8 +52,8 @@ body {
   overflow-y: auto;
   transition: all 0.5s ease;
   width: 0;
-  z-index: 1000;
-  background: Tomato            ;
+  z-index: 100;
+  /*background: salmon;*/
 }
 #sidebar-wrapper::-webkit-scrollbar {
   display: none;
@@ -70,9 +69,9 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-
   top: 0;
   width: 220px;
+
 }
 .sidebar-nav li {
   display: inline-block;
@@ -247,5 +246,5 @@ body {
 /* SOME DEMO STYLES - NOT REQUIRED */
 body,
 html {
-  background-color: DimGray   ;
+  background-color: White   ;
 }

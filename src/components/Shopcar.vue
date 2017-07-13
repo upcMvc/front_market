@@ -87,7 +87,7 @@
                 <!--第五列-->
                 <div class="cart-tab-5">
                   <div class="cart-item-opration">
-                    <span class="glyphicon glyphicon-trash" @click="del(item,index)"></span>
+                    <span class="glyphicon glyphicon-trash" @click="deleteIt(item,index)"></span>
                   </div>
                 </div>
               </li>
@@ -160,7 +160,7 @@
       });
     },
     created(){
-        this.initGet()
+      this.initGet()
     },
     methods: {
       initGet(){
@@ -173,21 +173,17 @@
             userId: userId
           }
         }).then((response) => {
-            console.log(response.data)
           this.productList = response.body;
-          console.log(response.body[0].id)
-          for(let i = 0;i < response.body.length;i++){
-            this.productList[i].productId =  response.body[i].id
-            this.productList[i].productName =  response.body[i].name
-            this.productList[i].productPrice =  response.body[i].price
-            this.productList[i].productQuentity =  response.body[i].num
-            this.productList[i].productImage =  response.body[i].imgPath
-            this.productList[i].productImage =  response.body[i].describes
+          for (let i = 0; i < response.body.length; i++) {
+            this.productList[i].productId = response.body[i].goodId;
+            this.productList[i].productName = response.body[i].name;
+            this.productList[i].productPrice = response.body[i].price;
+            this.productList[i].productQuentity = response.body[i].goodNum;
+            this.productList[i].productImage = response.body[i].imgPath;
+            this.productList[i].productImage = response.body[i].describes;
+            this.productList[i].shopcarId = response.body[i].shoppingCartId;
           }
-
           this.productList = response.body;
-          console.log(data);
-          alert(data[0].id);
         }, () => {
           console.log("error");
         })
@@ -196,25 +192,6 @@
 
         let _this = this;
         _this.productList = _this.initGet();
-//        alert(_this.productList);
-//        _this.productList = [
-//          {
-//            "productId": "600100002115",
-//            "productName": "黄鹤楼香烟",
-//            "productPrice": 19,
-//            "productQuentity": 1,
-//            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
-//            "parts": [
-//              {
-//                "partsId": "10001",
-//                "partsName": ""
-//              },
-//              {
-//                "partsId": "10002",
-//                "partsName": ""
-//              }
-//            ]
-//          }
       },
       // 点击 加减 的方法
       changeMoney: function (product, way) {
@@ -229,9 +206,7 @@
         this.caleTotalPrice();
       },
       selectedProduct: function (item) { // 接收的参数
-
-
-        if (typeof item.checked == 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
+        if (typeof item.checked === 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
           Vue.set(item, "checked", true);
         } else {
           item.checked = !item.checked;
@@ -261,14 +236,26 @@
           }
         });
       },
-      del(item, index){
-        console.log(item.productId);//id
-        this.productList.splice(index, 1)
-        //删除数据给后台
-      }
+      deleteIt(item, index) {
+        this.productList.splice(index, 1);
+        console.log(item.shopcarId);//id
+
+        let userId = localStorage.getItem("id");
+        let token = localStorage.getItem("token");
+        let postData = {
+          Authorization: token,
+          userId: userId,
+          id: item.shopcarId
+        };
+        this.$http.post(API.shoppingCart + "/delete", postData).then((response) => {
+          alert("删除成功");
+          console.log(response.data);
+        }, () => {
+          console.log("删除购物车商品失败");
+        });
+      },
+      //删除数据给后台
     }
-
-
   }
 </script>
 

@@ -31,9 +31,9 @@
       <!-- Page Content -->
       <div id="page-content-wrapper">
         <button type="button" class="hamburger animated fadeInLeft" v-bind:class="{'is-closed':!isClosed,'is-open':isClosed}" @click="hamburger_cross()">
-          <span class="hamb-top" style="background: DarkSalmon"></span>
-          <span class="hamb-middle" style="background: DarkSalmon"></span>
-          <span class="hamb-bottom" style="background: DarkSalmon"></span>
+          <span class="hamb-top" style="background: salmon"></span>
+          <span class="hamb-middle" style="background: salmon"></span>
+          <span class="hamb-bottom" style="background: salmon"></span>
         </button>
       </div>
     </div>

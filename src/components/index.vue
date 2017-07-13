@@ -1,15 +1,21 @@
 <template>
   <div id="index">
     <Navs></Navs>
-    <div class="product" v-for="info in goodsinfo">
+    <div class="product" v-for="(info,index) in goodsinfo">
       <div class="make3D">
-        <img src="../assets/good/img/8.jpg" alt="">
+        <!--<img src="../assets/good/img/8.jpg" alt="">-->
+        <img v-bind:src="info.imgPath" alt="">
         <div class="stats">
           <div class="stats-container">
             <span class="product_price">¥{{ info.price }}</span>
             <span class="product_name">{{ info.name }}</span>   <!--加入商品详细信息-->
-            <cartcontrol></cartcontrol>
-            <span></span>
+
+            <div>{{ info.kind }}</div>
+            <div>{{ info.describes }}</div>
+
+
+            <cartcontrol :pushid="info.id" v-on:push="getId"></cartcontrol>
+
           </div>
         </div>
       </div>
@@ -28,17 +34,24 @@
   import API from '../config/req'
   export default {
     name: 'index',
+    data () {
+      return {
+        goodsinfo: []
+      }
+    },
+    created(){
+      this.initData()
+    },
     mounted(){
-      this.initData();
+      let self = this;
       //this.initScroll()
-      this.initShowing()
+      setTimeout(() => {
+        self.initShowing()
+      }, 500)
+
+
     },
     methods: {
-      data () {
-        return {
-          goodsinfo: []
-        }
-      },
       initScroll() {
         this.foodsScroll = new BScroll(this.$refs.foodsWrapper);
       },
@@ -57,15 +70,33 @@
       },
       initData(){
         let self = this;
-        this.$http.get(API.GoodsInfo,{params:{Authorization: localStorage.getItem('token')}}
+        let token = localStorage.getItem('token');
+        this.$http.get(API.GoodsInfo, {params: {Authorization: token}}
         ).then((response) => {
           self.goodsinfo = response.data;
-          console.log(self.goodsinfo)
-        }, () => {
-        });
+          console.log(self.goodsinfo);
 
+        }, () => {
+          console.log('error !');
+        });
+      },
+      getId(id){
+        let token = localStorage.getItem('token');
+        let userid = localStorage.getItem('id');
+        let postData = {
+          Authorization: token,
+          userId: userid,
+          goodId: id,
+          num: 1
+        };
+        this.$http.post(API.shoppcartCreat,postData).then((response) => {
+            console.log(response.data)
+        }, () => {
+            alert('添加购物车失败！请稍后再试！')
+        });
       }
     },
+
     components: {
       shopCart,
       cartcontrol,

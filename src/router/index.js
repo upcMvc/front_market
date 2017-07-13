@@ -10,7 +10,9 @@ import Shopcar from '@/components/Shopcar'
 import Reg from '@/components/Reg'
 import Buyed from '@/components/Buyed'
 import Perinfo from '@/components/Perinfo'
+import History from '@/components/History'
 import Sell from '@/components/Sell'
+
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -68,6 +70,11 @@ export default new Router({
       path: '/buyed',
       name: 'buyed',
       component: Buyed
+    },
+    {
+      path:'/history',
+      name:'history',
+      component:History
     },
     {
       path: '/sell',

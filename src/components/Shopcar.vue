@@ -151,13 +151,16 @@
     },
     filters: { // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
       formatMoney: function (value) { // 默认接收一个参数
-        return "¥ " + value.toFixed(2) + " 元"; // 返回一个¥ 加上2位小数
+        return "¥ " + value + " 元"; // 返回一个¥ 加上2位小数
       }
     },
     mounted: function () {
       this.$nextTick(function () {
         this.cartView();
       });
+    },
+    created(){
+        this.initGet()
     },
     methods: {
       initGet(){
@@ -170,6 +173,18 @@
             userId: userId
           }
         }).then((response) => {
+            console.log(response.data)
+          this.productList = response.body;
+          console.log(response.body[0].id)
+          for(let i = 0;i < response.body.length;i++){
+            this.productList[i].productId =  response.body[i].id
+            this.productList[i].productName =  response.body[i].name
+            this.productList[i].productPrice =  response.body[i].price
+            this.productList[i].productQuentity =  response.body[i].num
+            this.productList[i].productImage =  response.body[i].imgPath
+            this.productList[i].productImage =  response.body[i].describes
+          }
+
           this.productList = response.body;
           console.log(data);
           alert(data[0].id);
@@ -178,6 +193,7 @@
         })
       },
       cartView: function () {
+
         let _this = this;
         _this.productList = _this.initGet();
 //        alert(_this.productList);
@@ -198,47 +214,7 @@
 //                "partsName": ""
 //              }
 //            ]
-//          },
-//          {
-//            "productId": "600100002120",
-//            "productName": "加多宝",
-//            "productPrice": 8,
-//            "productQuentity": 5,
-//            "productImage": "http://att2.citysbs.com/hangzhou/image1/2009/12/04-12/20091204_719e654b12716c0e89ccWlbSHzl1q43v.jpg",
-//            "parts": [
-//              {
-//                "partsId": "20001",
-//                "partsName": ""
-//              }
-//            ]
-//          },
-//          {
-//            "productId": "600100002130",
-//            "productName": "",
-//            "productPrice": 10,
-//            "productQuentity": 3,
-//            "productImage": "http://image.cn.made-in-china.com/prodzip/000-qeLEpStIJKgl.jpg",
-//            "parts": [
-//              {
-//                "partsId": "20001",
-//                "partsName": ""
-//              }
-//            ]
-//          },
-//          {
-//            "productId": "600100002140",
-//            "productName": "中华香烟",
-//            "productPrice": 100,
-//            "productQuentity": 1,
-//            "productImage": "http://pic19.nipic.com/20120209/6322264_105904992000_2.jpg",
-//            "parts": [
-//              {
-//                "partsId": "10001",
-//                "partsName": ""
-//              }
-//            ]
 //          }
-//        ]
       },
       // 点击 加减 的方法
       changeMoney: function (product, way) {
@@ -253,6 +229,8 @@
         this.caleTotalPrice();
       },
       selectedProduct: function (item) { // 接收的参数
+
+
         if (typeof item.checked == 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
           Vue.set(item, "checked", true);
         } else {

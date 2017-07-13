@@ -28,7 +28,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+            <h4 class="modal-title" id="exampleModalLabel">修改个人信息</h4>
           </div>
           <div class="modal-body">
             <form>
@@ -176,7 +176,7 @@
   @import "../assets/perinfo/css/feedify.min.css";
   @import "../assets/perinfo/css/feedify-theme.min.css";
   .bag{
-    background: dimgray ;
+    background: silver ;
     z-index:0;
     margin-top: -60px;
     height: 1000px;

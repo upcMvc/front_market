@@ -155,7 +155,7 @@ input, select, button {
 }
 .btn--red:hover {
     background-color: #fff;
-    color: white;
+    color: Tomato;
 }
 button {
     background: 0;

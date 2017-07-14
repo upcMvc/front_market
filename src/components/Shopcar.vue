@@ -267,13 +267,13 @@
               );
             }
           })
+          alert("订单提交成功，正在进行派送");
         }, () => {
           console.log("获取不到addressId");
         })
         setTimeout(()=>{
             location.reload()
-        },300)
-        alert("订单提交成功，正在进行派送");
+        },300);
       }
     }
   }

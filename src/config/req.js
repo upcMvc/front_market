@@ -22,7 +22,7 @@ const API = {
   history:baseurl+"/history",//历史记录相关操作API
   findShopRecord: baseurl + '/ShopRecord' + '/find',
   getGoodImage: baseurl + '/getGoodImage',
-  getCommentn: baseurl + '/ShopRecord' + '/getcommentn'
+  getCommentn: baseurl + '/ShopRecord' + '/getEvalutionByGoodId'
 
 
 };

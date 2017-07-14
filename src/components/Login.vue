@@ -114,7 +114,6 @@
         };
         this.$http.post(API.logIn, postData).then((response) => {
           if (response.data.id == -1) {
-            alert(response.data.id);
             alert(response.data.message);
           } else {
             localStorage.setItem("username", response.data.user.username);

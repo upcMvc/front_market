@@ -30,6 +30,7 @@
 //        console.log(this.imgs[0].toString().split("image/"))
 //        console.log(this.imgs[0].toString().split("image/")[1].split(";")[0])
 //        console.log(this.imgs[0].toString().split("image/")[1].split(";")[1].split(",")[1])
+
         this.imgs.splice(item,1);
       },
       add_img(event){

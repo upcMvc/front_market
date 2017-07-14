@@ -46,7 +46,7 @@
           }
         }
       },
-      _initScroll() {
+      initScroll() {
         this.foodlistScroll = new BScroll(this.$refs.foodlist, {
           click: true
         });

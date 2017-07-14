@@ -23,7 +23,11 @@ const API = {
   findShopRecord: baseurl + '/ShopRecord' + '/find',
   getGoodImage: baseurl + '/getGoodImage',
   getCommentn: baseurl + '/ShopRecord' + '/getEvalutionByGoodId',
-  createShopRecord: baseurl + "/ShopRecord/create"
+  createShopRecord: baseurl + "/ShopRecord/create",
+  daily : baseurl + '/goods/daily',
+  drink : baseurl + '/goods/drink',
+  fruits: baseurl + '/goods/fruits',
+  snacks: baseurl + '/goods/snacks'
 
 
 };

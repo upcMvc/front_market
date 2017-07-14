@@ -5,25 +5,55 @@
       <nav  id="sidebar-wrapper" role="navigation">
         <ul class="sidebar-nav">
           <li>
-            <a href="#" ><i class="fa fa-fw fa-home"></i>主页</a>
+            <a href="#">
+              <img src="../assets/img/nav/home.png" alt="" width="22px">
+              &nbsp;&nbsp;主页
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-folder"></i>日常用品</a>
+            <a href="/">
+              <i class="fa fa-fw"></i>
+              <img src="../assets/img/nav/stuff.png" alt="" width="22px">
+              &nbsp;&nbsp;日常用品
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-file-o"></i>零食</a>
+            <a href="#">
+              <img src="../assets/img/nav/snack.png" alt="" width="22px">
+              &nbsp;&nbsp;零食
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-cog"></i>水果</a>
+            <a href="#">
+              <img src="../assets/img/nav/fruit.png" alt="" width="22px">
+              &nbsp;&nbsp;水果
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-bank"></i>饮品</a>
+            <a href="#">
+              <img src="../assets/img/nav/drink.png" alt="" width="22px">
+              &nbsp;&nbsp;饮品
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-dropbox"></i>个人信息</a>
+            <a href="/shopcar">
+              <img src="../assets/img/nav/shopcar.png" alt="" width="22px">
+              &nbsp;&nbsp;购物车
+            </a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-fw fa-twitter"></i>历史</a>
+            <a href="/perinfo">
+              <img src="../assets/img/nav/person.png" alt="" width="22px">
+              &nbsp;&nbsp;个人信息
+            </a>
+            <!--<a href="/perinfo"><i class="fa fa-fw fa-dropbox"></i>个人信息</a>-->
+          </li>
+          <li>
+            <a href="/buyed">
+              <img src="../assets/img/nav/histroy.png" alt="" width="22px">
+              &nbsp;&nbsp;购买历史
+            </a>
+            <!--<a href="/history"><i class="fa fa-fw fa-twitter"></i>历史</a>-->
           </li>
         </ul>
       </nav>

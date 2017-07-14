@@ -71,6 +71,7 @@ body {
   padding: 0;
   top: 0;
   width: 220px;
+  background-color: #FB8072;
 
 }
 .sidebar-nav li {
@@ -91,7 +92,7 @@ body {
   z-index: -1;
 }
 .sidebar-nav li:first-child a {
-  color: Gainsboro ;
+  color: black ;
 }
 
 .sidebar-nav li:hover:before {
@@ -100,7 +101,7 @@ body {
   width: 100%;
 }
 .sidebar-nav li a {
-  color: Gainsboro;
+  color: black;
   display: block;
   padding: 10px 10px 10px 0px;
   text-decoration: none;

@@ -36,7 +36,13 @@
     name: 'index',
     data () {
       return {
-        goodsinfo: []
+        goodsinfo: [{
+          price:98,
+          imgPath:'',
+          name: '测试',
+          describes: 'wertyuigfdsadfghjgfdsasdfghgfdseawsdfg'
+
+        }]
       }
     },
     created(){
@@ -115,12 +121,11 @@
 
   .shopCar {
     background: white;
-    background: url('../assets/img/shopcar.svg') no-repeat 0 0;
-    background-position: -5px;
+    background: url('../assets/img/nav/shopcar.png') no-repeat 0 0;
+    background-size: 50px;
+    background-position: 4px 4px;
     width: 60px;
     height: 60px;
-    box-shadow: 0.5px 0.5px 0.5px 0.5px #888888;
-    border-radius: 5px;
     position: fixed;
     bottom: 22px;
     left: 32px;
@@ -129,6 +134,7 @@
   }
 
   .shopCar:hover {
+    border-radius: 5px;
     box-shadow: 1px 1px 1px 1px #888888;
     transition: all 0.5s;
   }

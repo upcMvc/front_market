@@ -41,13 +41,13 @@
                   </div>
                   <!--图片-->
                   <div class="cart-item-pic">
-                    <img v-bind:src="item.productImage" alt="">
-                    <!--<img src="{{item.productImage}}" alt=""> 会在浏览器加载时 vue实例没有渲染完成，把它当作图片路径来加载-->
+                    <img v-bind:src="item.imgPath" alt="">
+                    <!--<img src="{{item.imgPath}}" alt=""> 会在浏览器加载时 vue实例没有渲染完成，把它当作图片路径来加载-->
                   </div>
                   <!--图片后面的文字-->
                   <div class="cart-item-title">
                     <div class="item-name">
-                      {{ item.productName + "--我是index的值" + index}}
+                      {{ item.name + "--我是index的值" + index}}
                     </div>
                   </div>
                   <!-- 赠送-->
@@ -58,7 +58,7 @@
                 <!--第二列-->
                 <div class="cart-tab-2">
                   <!-- 过滤器的使用方法 | 加方法 -->
-                  <div class="item-price"> {{ item.productPrice | formatMoney }}</div>
+                  <div class="item-price"> {{ item.price | formatMoney }}</div>
                 </div>
                 <!--第三列-->
                 <div class="cart-tab-3">
@@ -69,10 +69,10 @@
                         调用方法的同时 我们需要把商品的对象传递过去 item
                          第二个参数 -1 减 1 加
                         -->
-                        <a href="javascript:;" v-on:click=" changeMoney(item,-1)"> - </a>
+                        <a @click=" changeMoney(item,-1)"> - </a>
                         <!--文本框 放入当前商品数量 v-model   -->
-                        <input type="text" disabled v-model="item.productQuentity">
-                        <a href="javascript:; " @click=" changeMoney(item,1) "> + </a>
+                        <input type="text" disabled v-model="item.goodNum">
+                        <a @click=" changeMoney(item,1) "> + </a>
                       </div>
                     </div>
 
@@ -81,7 +81,7 @@
                 <!--第四列-->
                 <div class="cart-tab-4">
                   <!-- 总金额是当前的单价乘以商品总数-->
-                  <div class="item-price-total">{{item.productPrice * item.productQuentity | formatMoney}}</div>
+                  <div class="item-price-total">{{item.price * item.goodNum | formatMoney}}</div>
 
                 </div>
                 <!--第五列-->
@@ -105,20 +105,24 @@
                 <span class="item-check-btn" :class="{'check': checkAllFlag}" @click="checkAll(true)">
                                 <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
                             </span>
-                <span @click="checkAll(true)"> 全选 </span>
+                <span @click="checkAll(true)" class="btnC"> 全选 </span>
               </a>
             </div>
             <div class="item-all-del">
-              <a href="javascript:;" @click="checkAll(false)"> 取消全选</a>
+              <a href="javascript:;" @click="checkAll(false)" class="btnC"> 取消全选</a>
             </div>
           </div>
           <!--footer 右边的-->
           <div class="cart-foot-r">
             <div class="item-total">
-              总价：<span class="total-price"> {{ totalMoney }}</span>
+              总价：<span class="total-price"> {{ totalMoney | formatMoney}}</span>
             </div>
             <div class="next-btn-wrap">
+<<<<<<< HEAD
               <a href="" class="btn btn--red" @click="sub()">结账</a>
+=======
+              <button class="btn btn--red" @click="sub()"> 结账 </button>
+>>>>>>> a3f657ea0696e2229773b2624e75ce2e7a79ed4d
             </div>
           </div>
         </div>
@@ -143,7 +147,8 @@
         productList: [],       // 定义一个数组
         checkAllFlag: false,   // 定义是否全选
         curProduct: '',        // 保存删除的商品信息
-        delFlag: false
+        delFlag: false,
+        addId: ''//用户地址id
       }
     },
     components: {
@@ -162,14 +167,6 @@
     methods: {
       cartView: function () {
         let self = this
-        this.productList = [
-            {
-            "productId": "600100002115",
-            "productName": "黄鹤楼香烟",
-            "productPrice": 19,
-            "productQuentity": 1,
-            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
-          }]
         let userId = localStorage.getItem("id");//拿到本地存储的userId
         let token = localStorage.getItem("token");//后台安全认证用token
         self.$http.get(API.shoppingCart + "/find", {
@@ -178,27 +175,20 @@
             userId: userId
           }
         }).then((response) => {
-          console.log(response.data)
-          for(let i = 0;i < response.body.length;i++){
-            this.productList[i].productId =  response.body[i].id
-            this.productList[i].productName =  response.body[i].goodId
-            this.productList[i].productPrice =  response.body[i].price
-            this.productList[i].productQuentity =  response.body[i].num
-            this.productList[i].productImage =  response.body[i].imgPath
-          }
+          console.log(response.body)
+          self.productList = response.body
         }, () => {
           console.log("error");
         })
+        console.log(self.productList)
       },
       // 点击 加减 的方法
-      changeMoney:function(product, way) {
+      changeMoney: function (product, way) {
+        let token = localStorage.getItem("token");
         if (way > 0) { //当 way>0 就是点击的 +
-          product.productQuentity++; // 数量增加  就相当于 item 的productQuentity
+          product.goodNum++;// 数量增加  就相当于 item 的goodNum
         } else {
-          product.productQuentity--; // 否则数量减少
-          if (product.productQuentity < 0) { //
-            product.productQuentity = 0;
-          }
+          product.goodNum--; // 否则数量减少
         }
         this.caleTotalPrice();
       },
@@ -215,7 +205,7 @@
         this.checkAllFlag = flag;
         var _this = this;
         this.productList.forEach(function (item, index) { // 用forEach来遍历 productList
-          if (typeof item.checked === 'undefined') { // 先判断 是否有这个 item.checked
+          if (typeof item.checked == 'undefined') { // 先判断 是否有这个 item.checked
             Vue.set(item, "checked", _this.checkAllFlag);  // 没有 先注册
           } else {
             item.checked = _this.checkAllFlag;
@@ -225,43 +215,70 @@
       },
       // 计算选中商品的总价
       caleTotalPrice: function () {
-        var _this = this;
-        this.totalMoney = 0;
-        this.productList.forEach(function (item, index) {
+        let self = this;
+        self.totalMoney = 0;
+        self.productList.forEach(function (item) {
           if (item.checked) {
-            _this.totalMoney += item.productPrice * item.productQuentity;
+            self.totalMoney += item.price * item.goodNum;
           }
         });
       },
       //删除数据给后台
       deleteIt(item, index) {
         this.productList.splice(index, 1);
-        console.log(item.shopcarId);//id
-
         let userId = localStorage.getItem("id");
         let token = localStorage.getItem("token");
         let postData = {
           Authorization: token,
           userId: userId,
-          id: item.shopcarId
+          id: item.shoppingCartId
         };
         this.$http.post(API.shoppingCart + "/delete", postData).then((response) => {
-          alert("删除成功");
+//          alert("删除成功");
           console.log(response.data);
         }, () => {
           console.log("删除购物车商品失败");
         });
       },
+      //删除数据给后台
       sub(){
-        var _this = this;
-        this.totalMoney = 0;
-        this.productList.forEach(function (item, index) {
-          if (item.checked) {
-            console.log(item)
+        let self = this;
+        self.$http.get(API.getAddrFormBack, {
+          params: {
+            Authorization: localStorage.getItem("token"),
+            userId: localStorage.getItem('id')
           }
+        }).then((response) => {
+          self.addId = response.body[0].id;
+          console.log(self.addId);
+          self.productList.forEach(function (item, index) {
+            if (item.checked) {
+              console.log(item);
+              let postData = {
+                Authorization: localStorage.getItem("token"),
+                number: item.goodNum,
+                userId: item.userId,
+                goodId: item.goodId,
+                cost: item.price * item.goodNum,
+                addressId: self.addId
+              };
+              self.$http.post(API.createShopRecord, postData).then(() => {
+                  self.totalMoney = 0;
+                  self.deleteIt(item, index);
+                }, () => {
+                  alert("提交失败");
+                }
+              );
+            }
+          })
+        }, () => {
+          console.log("获取不到addressId");
         })
+        setTimeout(()=>{
+            location.reload()
+        },300)
+        alert("订单提交成功，正在进行派送");
       }
-
     }
   }
 </script>
@@ -280,12 +297,17 @@
   }
 
   .quentity > a {
-    color: white;
+    color: black;
     text-decoration: none;
   }
 
   .quentity > a:hover {
-    color: white;
+    color: black;
     text-decoration: none;
+  }
+
+  .btnC {
+    text-decoration: none;
+    color: black;
   }
 </style>

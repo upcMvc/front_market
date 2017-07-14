@@ -1,5 +1,8 @@
 <template>
+
   <div id="perInfo">
+
+    <Navs></Navs>
       <div class="row bag">
         <div class="col-md-8 col-md-offset-2">
           <div class="feedify">
@@ -111,6 +114,7 @@
   import Locate from './map/Locate.vue'
   import Pic from './pic/Pic.vue'
   import '../assets/perinfo/js/init'
+  import Navs from './Nav.vue'
   export default {
     name: 'perInfo',
     data () {
@@ -136,7 +140,8 @@
     },
     components: {
       Locate,
-      Pic
+      Pic,
+      Navs
     },
     methods: {
       //拿到用户地址

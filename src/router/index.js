@@ -12,7 +12,6 @@ import Buyed from '@/components/Buyed'
 import Perinfo from '@/components/Perinfo'
 import History from '@/components/History'
 import Sell from '@/components/Sell'
-import Heart from '@/components/Heart'
 
 
 Vue.use(Router)
@@ -89,11 +88,6 @@ export default new Router({
       path: '/sell',
       name: 'sell',
       component: Sell
-    },
-    {
-      path: '/heart',
-      name: 'heart',
-      component:Heart
     }
   ]
 })

@@ -27,8 +27,9 @@ const API = {
   daily : baseurl + '/goods/daily',
   drink : baseurl + '/goods/drink',
   fruits: baseurl + '/goods/fruits',
-  snacks: baseurl + '/goods/snacks'
-
+  snacks: baseurl + '/goods/snacks',
+  pushgood: baseurl + '/goods/create',
+  getGood: baseurl+ '/warehouse/findWhid'
 
 };
 

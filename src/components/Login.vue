@@ -9,7 +9,7 @@
           <div class="form-group">
             <label class="col-sm-6 control-label fontC">用户名</label>
             <div class="col-sm-6">
-              <input type="text" placeholder="用户名" v-model="username">
+              <input type="text" placeholder="username" v-model="username">
             </div>
           </div>
           <div class="form-group">

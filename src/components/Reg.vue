@@ -83,24 +83,27 @@
         };
         let self = this;
         self.$http.post(API.reg, postData).then((response) => {
-          console.log(response);
+          //console.log(response);
           if (response.body.id === -1) {
             alert(response.body.message);
           } else {
             localStorage.setItem("username", response.data.user.username);
             let username = localStorage.getItem("username");
-            console.log("username: " + username);
+            //console.log("username: " + username);
             localStorage.setItem("token", response.data.token);
             let token = localStorage.getItem("token");
-            console.log("token: " + token);
+           // console.log("token: " + token);
             localStorage.setItem("email", response.data.user.email);
             let email = localStorage.getItem("email");
-            console.log("email: " + email);
+            //console.log("email: " + email);
             localStorage.setItem("id", response.data.user.id);
             localStorage.setItem("phone", response.data.user.phone);
             let phone = localStorage.getItem("phone");
-            console.log("phone: " + phone);
+            //console.log("phone: " + phone);
             localStorage.setItem("avatar",response.data.user.avatar);
+
+            this.$router.push({name: 'index'})
+
           }
         }, () => {
           console.log("error")

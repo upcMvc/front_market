@@ -8,7 +8,7 @@
           <div class="feedify">
             <section class="feedify-item">
               <header class="feedify-item-header clearfix">
-                <img src="../assets/perinfo/img/user-2.jpg" class="img-circle pull-left" id="head" @click="changeHead()">
+                <img v-bind:src="avatar" class="img-circle pull-left" id="head" @click="changeHead()">
                 <h1 class="pull-left">{{username}}</h1>
                 <h2 class="pull-right hidden-xs">
                   <button class="btn btn-default" data-toggle="modal" data-target="#info">修改个人信息</button>
@@ -101,7 +101,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            <button type="button" class="btn btn-primary" @click="subpic()">提交</button>
+            <button type="button" class="btn btn-primary" @click="subpic()" data-dismiss="modal">提交</button>
           </div>
         </div>
       </div>
@@ -126,7 +126,8 @@
         password:'',
         repassword:'',
         format:'',
-        base:''
+        base:'',
+        avatar: localStorage.getItem('avatar')
       }
     },
     created(){
@@ -158,14 +159,20 @@
       },
       //提交上传头像
       subpic(){
-        let date ={
+        let data ={
           Authorization: localStorage.getItem("token"),
           userId: localStorage.getItem("id"),
           base64: this.base,
           suffix:this.format
-        }
+        };
         this.$http.post(API.setAvatar,data).then((response)=> {
-          alert(上传成功)
+          alert('上传成功');
+          localStorage.setItem('avatar','data:image/' + data.suffix + ';base64,' + data.base64);
+
+          setTimeout(()=>{
+            this.avatar = localStorage.getItem('avatar')
+          },500);
+
         },()=>{
           consoele.log("头像上传失败")
         })
@@ -204,9 +211,7 @@
       },
       //组建拿到图片信息
       getPic(format,base){
-        console.log("gerPic")
-        console.log(format)
-        console.log(base)
+
         this.format = format
         this.base = base
       },

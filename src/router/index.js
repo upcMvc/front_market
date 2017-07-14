@@ -21,6 +21,14 @@ Vue.http.options.emulateJSON = true
 
 export default new Router({
   mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    console.log('to', to)
+    if (to.hash) {
+      return {
+        selector: to.hash
+      }
+    }
+  },
   routes: [
     {
       path: '/',

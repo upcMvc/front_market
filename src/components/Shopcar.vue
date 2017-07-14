@@ -47,7 +47,7 @@
                   <!--图片后面的文字-->
                   <div class="cart-item-title">
                     <div class="item-name">
-                      {{ item.name + "--我是index的值" + index}}
+                      {{ item.name }}
                     </div>
                   </div>
                   <!-- 赠送-->
@@ -162,8 +162,7 @@
     },
     methods: {
       cartView: function () {
-        let self = this;
-
+        let self = this
         let userId = localStorage.getItem("id");//拿到本地存储的userId
         let token = localStorage.getItem("token");//后台安全认证用token
         self.$http.get(API.shoppingCart + "/find", {
@@ -220,6 +219,7 @@
           }
         });
       },
+      //删除数据给后台
       deleteIt(item, index) {
         this.productList.splice(index, 1);
         let userId = localStorage.getItem("id");
@@ -258,9 +258,8 @@
                 cost: item.price * item.goodNum,
                 addressId: self.addId
               };
-              self.$http.post(API.createShopRecord, postData).then((response) => {
+              self.$http.post(API.createShopRecord, postData).then(() => {
                   self.totalMoney = 0;
-                  alert("提交成功,订单正在处理");
                   self.deleteIt(item, index);
                 }, () => {
                   alert("提交失败");
@@ -268,10 +267,13 @@
               );
             }
           })
+          alert("订单提交成功，正在进行派送");
         }, () => {
           console.log("获取不到addressId");
-        });
-
+        })
+        setTimeout(()=>{
+            location.reload()
+        },300);
       }
     }
   }

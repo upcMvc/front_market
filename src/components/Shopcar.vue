@@ -162,8 +162,7 @@
     },
     methods: {
       cartView: function () {
-        let self = this;
-
+        let self = this
         let userId = localStorage.getItem("id");//拿到本地存储的userId
         let token = localStorage.getItem("token");//后台安全认证用token
         self.$http.get(API.shoppingCart + "/find", {
@@ -220,6 +219,7 @@
           }
         });
       },
+      //删除数据给后台
       deleteIt(item, index) {
         this.productList.splice(index, 1);
         let userId = localStorage.getItem("id");

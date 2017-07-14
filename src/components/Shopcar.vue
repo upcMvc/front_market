@@ -118,7 +118,7 @@
               总价：<span class="total-price"> {{ totalMoney }}</span>
             </div>
             <div class="next-btn-wrap">
-              <a href="address.html" class="btn btn--red"> 结账 </a>
+              <a href="" class="btn btn--red" @click="sub()">结账</a>
             </div>
           </div>
         </div>
@@ -151,7 +151,7 @@
     },
     filters: { // 过滤器 对数据实现转换 可以定义全局的 也可以定义局部的 这个是局部的 只有vue的实例才可以使用
       formatMoney: function (value) { // 默认接收一个参数
-        return "¥ " + value + " 元"; // 返回一个¥ 加上2位小数
+        return "¥ " + value.toFixed(2) + " 元"; // 返回一个¥ 加上2位小数
       }
     },
     mounted: function () {
@@ -160,45 +160,16 @@
       });
     },
     methods: {
-//      initGet(){
-//        let self = this;
-//        let userId = localStorage.getItem("id");//拿到本地存储的userId
-//        let token = localStorage.getItem("token");//后台安全认证用token
-//        self.$http.get(API.shoppingCart + "/find", {
-//          params: {
-//            Authorization: token,
-//            userId: userId
-//          }
-//        }).then((response) => {
-//          console.log(response.data)
-//          this.productList = response.body;
-//          console.log(response.body[0].id)
-//          for(let i = 0;i < response.body.length;i++){
-//            this.productList[i].productId =  response.body[i].id
-//            this.productList[i].productName =  response.body[i].name
-//            this.productList[i].productPrice =  response.body[i].price
-//            this.productList[i].productQuentity =  response.body[i].num
-//            this.productList[i].productImage =  response.body[i].imgPath
-//            this.productList[i].productImage =  response.body[i].describes
-//          }
-//
-//          this.productList = response.body;
-//          console.log(data);
-//          alert(data[0].id);
-//        }, () => {
-//          console.log("error");
-//        })
-//      },
       cartView: function () {
         let self = this
-//        this.productList = [
-//            {
-//            "productId": "600100002115",
-//            "productName": "黄鹤楼香烟",
-//            "productPrice": 19,
-//            "productQuentity": 1,
-//            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
-//          }]
+        this.productList = [
+            {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }]
         let userId = localStorage.getItem("id");//拿到本地存储的userId
         let token = localStorage.getItem("token");//后台安全认证用token
         self.$http.get(API.shoppingCart + "/find", {
@@ -208,15 +179,12 @@
           }
         }).then((response) => {
           console.log(response.data)
-          this.productList = response.body;
-          console.log("0:" + response.body[0].price)
           for(let i = 0;i < response.body.length;i++){
             this.productList[i].productId =  response.body[i].id
-            this.productList[i].productName =  response.body[i].name
+            this.productList[i].productName =  response.body[i].goodId
             this.productList[i].productPrice =  response.body[i].price
             this.productList[i].productQuentity =  response.body[i].num
             this.productList[i].productImage =  response.body[i].imgPath
-            this.productList[i].productImage =  response.body[i].describes
           }
         }, () => {
           console.log("error");
@@ -265,6 +233,7 @@
           }
         });
       },
+      //删除数据给后台
       deleteIt(item, index) {
         this.productList.splice(index, 1);
         console.log(item.shopcarId);//id
@@ -283,7 +252,16 @@
           console.log("删除购物车商品失败");
         });
       },
-      //删除数据给后台
+      sub(){
+        var _this = this;
+        this.totalMoney = 0;
+        this.productList.forEach(function (item, index) {
+          if (item.checked) {
+            console.log(item)
+          }
+        })
+      }
+
     }
   }
 </script>

@@ -47,7 +47,7 @@
       //this.initScroll()
       setTimeout(() => {
         self.initShowing()
-      }, 500)
+      }, 1000)
     },
     methods: {
       initScroll() {

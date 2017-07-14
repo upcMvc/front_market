@@ -8,11 +8,10 @@
               <img alt="" v-bind:src="avatar" class="img-circle pull-left">
               <h1 class="pull-left">{{ username }}</h1>
             </header>
-            <footer v-for="i in 5">
+            <footer v-for="info in allInfor">
               <div class="actions">
-                <img alt="" src="../assets/perinfo/img/1.jpg">
+                <img alt="" v-bind:src="info.imgPath">
                 <ul class="list-inline">
-
                   <li><a href="#"><i class="icon-heart"></i></a></li>
                   <li><a href="#"><i class="icon-speak"></i></a></li>
                   <li class="pull-right"><a href="#"><i class="icon-tripledot"></i></a></li>
@@ -82,10 +81,11 @@
     created(){
       let self = this;
       this.username = localStorage.getItem('username');
+      this.initData();
     },
     mounted(){
 
-      this.initData();
+
     },
     components: {},
     methods: {

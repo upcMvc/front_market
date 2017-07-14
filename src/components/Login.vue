@@ -34,12 +34,12 @@
 
           <div class="form-group">
             <!--<label class="col-sm-6 control-label fontC" style="display: none"></label>-->
-            <div class="col-sm-offset-6 col-sm-6 fontC">
-              <button type="button" class="btn btn-default col-md-4 col-md-offset-1 btnC" data-toggle="modal" data-target="#info">
+            <div class="col-sm-offset-6 col-sm-6 fontC" style="position: relative">
+              <button style="position: absolute;left: 8px" type="button" class="btn btn-default col-md-4 col-md-offset-1 btnC" data-toggle="modal" data-target="#info">
                   忘记密码
               </button>
               <div class="col-sm-4"> </div>
-              <button type="button" class="btn btn-default col-md-4 col-md-offset-2 btnC" @click="reg()">
+              <button style="position: absolute;right:30px" type="button" class="btn btn-default col-md-4 col-md-offset-2 btnC" @click="reg()">
                 注册
               </button>
             </div>

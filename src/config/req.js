@@ -24,7 +24,14 @@ const API = {
   getGoodImage: baseurl + '/getGoodImage',
   getCommentn: baseurl + '/ShopRecord' + '/getEvalutionByGoodId',
   createShopRecord: baseurl + "/ShopRecord/create",
+<<<<<<< HEAD
   sendEmail:baseurl+"/ShopRecord/whSendEmail"
+=======
+  daily : baseurl + '/goods/daily',
+  drink : baseurl + '/goods/drink',
+  fruits: baseurl + '/goods/fruits',
+  snacks: baseurl + '/goods/snacks'
+>>>>>>> ac98b253a0ea1b149c1484bdc25179a64e3c4209
 
 
 };

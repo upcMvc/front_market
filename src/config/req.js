@@ -24,13 +24,13 @@ const API = {
   getGoodImage: baseurl + '/getGoodImage',
   getCommentn: baseurl + '/ShopRecord' + '/getEvalutionByGoodId',
   createShopRecord: baseurl + "/ShopRecord/create",
+  sendEmail:baseurl+"/ShopRecord/whSendEmail",
   daily : baseurl + '/goods/daily',
   drink : baseurl + '/goods/drink',
   fruits: baseurl + '/goods/fruits',
   snacks: baseurl + '/goods/snacks',
   pushgood: baseurl + '/goods/create',
   getGood: baseurl+ '/warehouse/findWhid'
-
 };
 
 module.exports = API;

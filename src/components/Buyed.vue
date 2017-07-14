@@ -12,8 +12,8 @@
             </header>
             <footer v-for="info in allInfor">
               <div class="actions">
-                <img alt="" v-bind:src="info.imgPath">
-                <img alt="" v-bind:src="info.imgPath">
+                <img alt="" v-bind:src="info.imgPath1">
+                <img alt="" v-bind:src="info.imgPath2">
                 <ul class="list-inline">
                   <li style="position: relative">
                     <i style="position: absolute;top:-52px;left: -50px" class="heart" v-bind:id="'h' + info.id" v-on:click="heart(info.id)" rel="like"></i>
@@ -75,7 +75,6 @@
 <script>
   import $ from 'jquery'
   import API from '../config/req'
-  import im from  '../assets/buyed/img/1.jpg'
   import Navs from './Nav'
   export default {
     name: 'buyed',
@@ -86,41 +85,68 @@
         allInfor: [
           {
             id: 1,
-            imgPath: im,
-            like: 51,
-            goodname: '可乐',
+            imgPath1: 'http://182.254.130.205/picture/%E7%AC%94.jpg',
+            imgPath2: 'http://182.254.130.205/picture/%E7%AC%941.jpg',
+            like: 21,
+            goodname: '胡萝卜卡通笔',
             comment: [
               {
-                evaluate: 'this is just a test',
-                username: 'dev'
+                evaluate: '超级润滑！！！',
+                username: '小明'
               },
               {
-                evaluate: 'this is just a test',
-                username: 'dev'
+                evaluate: '网站写得真好看！！！',
+                username: '凡'
               },
               {
-                evaluate: 'this is just a test',
-                username: 'dev'
+                evaluate: '那可不！',
+                username: '熙阳'
+              },
+              {
+                evaluate: '超级好用',
+                username: '匿名'
               }
             ]
           },
           {
             id: 2,
-            goodname: '可乐',
-            like: 20,
-            imgPath: "http://182.254.130.205/picture/%E5%8F%AF%E4%B9%90.jpg",
+            goodname: '橙子',
+            like: 7,
+            imgPath1: "http://182.254.130.205/picture/%E6%A9%99%E5%AD%901.jpg",
+            imgPath2: "http://182.254.130.205/picture/%E6%A9%99%E5%AD%90.jpg",
             comment: [
               {
-                evaluate: 'this is just a test',
-                username: 'dev'
+                evaluate: '我不想评论',
+                username: '陈子枫'
               },
               {
-                evaluate: 'this is just a test',
-                username: 'dev'
+                evaluate: '真好吃！！',
+                username: '琪琪'
               },
               {
-                evaluate: 'this is just a test',
-                username: 'dev'
+                evaluate: '那可不',
+                username: '小明'
+              }
+            ]
+          },
+          {
+            id: 3,
+            goodname: '麻薯',
+            like: 50,
+            imgPath1: "http://182.254.130.205/picture/%E9%BA%BB%E8%96%AF1.jpg",
+            imgPath2: "http://182.254.130.205/picture/%E9%BA%BB%E8%96%AF.jpg",
+            comment: [
+              {
+                evaluate: '贼好吃',
+                username: '小红'
+              },
+              {
+                evaluate: '还可以',
+                username: '小丽'
+              },
+              {
+                evaluate: '我是吃货',
+                username: '默默'
               }
             ]
           },

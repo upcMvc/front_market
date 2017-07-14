@@ -162,7 +162,7 @@
     },
     methods: {
       cartView: function () {
-        let self = this
+        let self = this;
         let userId = localStorage.getItem("id");//拿到本地存储的userId
         let token = localStorage.getItem("token");//后台安全认证用token
         self.$http.get(API.shoppingCart + "/find", {
@@ -171,11 +171,11 @@
             userId: userId
           }
         }).then((response) => {
-          console.log(response.body)
+          console.log(response.body);
           self.productList = response.body
         }, () => {
           console.log("error");
-        })
+        });
         console.log(self.productList)
       },
       // 点击 加减 的方法
@@ -189,7 +189,7 @@
         this.caleTotalPrice();
       },
       selectedProduct: function (item) { // 接收的参数
-        if (typeof item.checked == 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
+        if (typeof item.checked === 'undefined') { // 怎样判断一个对象的变量存不存在 看他的typeof == undedined
           Vue.set(item, "checked", true);
         } else {
           item.checked = !item.checked;
@@ -201,7 +201,7 @@
         this.checkAllFlag = flag;
         var _this = this;
         this.productList.forEach(function (item, index) { // 用forEach来遍历 productList
-          if (typeof item.checked == 'undefined') { // 先判断 是否有这个 item.checked
+          if (typeof item.checked === 'undefined') { // 先判断 是否有这个 item.checked
             Vue.set(item, "checked", _this.checkAllFlag);  // 没有 先注册
           } else {
             item.checked = _this.checkAllFlag;
@@ -246,10 +246,8 @@
           }
         }).then((response) => {
           self.addId = response.body[0].id;
-          console.log(self.addId);
           self.productList.forEach(function (item, index) {
             if (item.checked) {
-              console.log(item);
               let postData = {
                 Authorization: localStorage.getItem("token"),
                 number: item.goodNum,
@@ -266,13 +264,22 @@
                 }
               );
             }
-          })
+          });
           alert("订单提交成功，正在进行派送");
+          let emailData = {
+            Authorization: localStorage.getItem("token"),
+            userId:localStorage.getItem("id")
+          };
+          self.$http.post(API.sendEmail, emailData).then((response)=>{
+            },()=>{
+            console.log("邮件发送失败");
+            }
+          )
         }, () => {
           console.log("获取不到addressId");
-        })
+        });
         setTimeout(()=>{
-            location.reload()
+            location.reload();
         },300);
       }
     }

@@ -26,18 +26,20 @@
           </div>
 
           <div class="form-group">
+
             <div class="col-sm-offset-6 col-sm-6 fontC">
               <button type="button" id="reg-button" @click="sub">登录</button>
             </div>
           </div>
 
           <div class="form-group">
+            <!--<label class="col-sm-6 control-label fontC" style="display: none"></label>-->
             <div class="col-sm-offset-6 col-sm-6 fontC">
-              <button type="button" class="btn btn-sm col-sm-4" data-toggle="modal" data-target="#info">
+              <button type="button" class="btn btn-default col-md-4 col-md-offset-1" data-toggle="modal" data-target="#info">
                   忘记密码
               </button>
               <div class="col-sm-4"> </div>
-              <button type="button" class="btn btn-sm col-sm-4" @click="reg()">
+              <button type="button" class="btn btn-default col-md-4 col-md-offset-2" @click="reg()">
                 注册
               </button>
             </div>

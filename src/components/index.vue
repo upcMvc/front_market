@@ -8,19 +8,19 @@
         <div class="stats">
           <div class="stats-container">
             <span class="product_price">¥{{ info.price }}</span>
-            <span class="product_name">{{ info.name }}</span>   <!--加入商品详细信息-->
-
-            <div>{{ info.kind }}</div>
-            <div>{{ info.describes }}</div>
-
-
+            <span class="product_name">{{ info.name }}</span>  <br>
+            <div>
+              <h4>{{ info.kind }}</h4>
+            </div>
+            <div>
+              <h4 class="text-left h4">描述：{{ info.describes }}</h4>
+            </div><br>
             <cartcontrol :pushid="info.id" v-on:push="getId"></cartcontrol>
-
           </div>
         </div>
       </div>
     </div>
-    <div class="shopCar"></div>
+    <div class="shopCar" @click="shopCar()"></div>
     <shopCart></shopCart>
   </div>
 
@@ -48,8 +48,6 @@
       setTimeout(() => {
         self.initShowing()
       }, 500)
-
-
     },
     methods: {
       initScroll() {
@@ -94,9 +92,11 @@
         }, () => {
             alert('添加购物车失败！请稍后再试！')
         });
+      },
+      shopCar(){
+          this.$router.push({path:'/shopcar'})
       }
     },
-
     components: {
       shopCart,
       cartcontrol,

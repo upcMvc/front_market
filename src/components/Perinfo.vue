@@ -12,7 +12,7 @@
                   <button class="btn btn-default" data-toggle="modal" data-target="#pw">修改密码</button>
                 </h2>
               </header>
-              <div class="feedify-item-body">
+              <div class="feedify-item-body" v-for="">
                 <h2 class="text-left fontA">手机：{{phone}}</h2>
                 <h2 class="text-left fontA">邮箱：{{email}}</h2>
                 <h2 class="text-left fontA">地址：{{address}}(地址不准?请于地图选点)</h2>
@@ -107,6 +107,7 @@
 </template>
 <script>
   import $ from 'jquery'
+  import API from '../config/req'
   import Locate from './map/Locate.vue'
   import Pic from './pic/Pic.vue'
   import '../assets/perinfo/js/init'
@@ -128,6 +129,7 @@
       this.phone = localStorage.getItem("phone")
       this.username = localStorage.getItem("username")
       this.email = localStorage.getItem("email")
+      this.getaddr()
     },
     mounted(){
       $('.feedify').feedify();
@@ -142,37 +144,58 @@
         let data = {
           Authorization: localStorage.getItem("token"),
           userId: localStorage.getItem("id")
-        }
+        };
         this.$http.get(API.getAddrFormBack,{params:data}).then((response)=> {
-
+            this.address = response.body[0].location
         },()=>{
             consoele.log("error")
         })
       },
       //提交上传头像
       subpic(){
-
+        let date ={
+          Authorization: localStorage.getItem("token"),
+          userId: localStorage.getItem("id"),
+          base64: this.base,
+          suffix:this.format
+        }
+        this.$http.post(API.setAvatar,data).then((response)=> {
+          alert(上传成功)
+        },()=>{
+          consoele.log("头像上传失败")
+        })
       },
       addr(pt,addCom){
         console.log(pt)
         console.log(addCom)
         this.address = addCom.province + ", " + addCom.city + ", " + addCom.district + ", " + addCom.street + ", " + addCom.streetNumber
         let data = {
-          addressId : '',
-          location: '',
+          Authorization: localStorage.getItem("token"),
+          userId: localStorage.getItem("id"),
+          location: this.address,
           latitude: pt.coords.latitude,
           longitude: pt.coords.longitude,
           city: addCom.city
-        }
-        this.$http.post().then((response)=>{
-
+        };
+        this.$http.post(API.setAddr,data).then((response)=>{
+          alert("地址添加成功")
         },()=>{
-
+          alert("error")
         })
       },
       //修改个人信息
       submit(){
-
+         let data ={
+           Authorization: localStorage.getItem("token"),
+           userId: localStorage.getItem("id"),
+           email:this.email,
+           phone:this.phone
+         };
+        this.$http.post(API.updatePerInfor,data).then((response)=>{
+          alert("个人信息修改成功")
+        },()=>{
+          alert("error")
+        })
       },
       //组建拿到图片信息
       getPic(format,base){

@@ -1,5 +1,7 @@
 <template>
   <div>
+
+    <Navs></Navs>
     <div class="row bag">
       <div class="col-md-8 col-md-offset-2">
         <div class="feedify">
@@ -67,6 +69,7 @@
   import $ from 'jquery'
   import API from '../config/req'
   import im from  '../assets/buyed/img/1.jpg'
+  import Navs from './Nav'
   $(function () {
     $('.feedify').feedify();
   });
@@ -150,7 +153,9 @@
     },
     mounted(){
     },
-    components: {},
+    components: {
+      Navs
+    },
     methods: {
       comment(id){
         console.log(id);

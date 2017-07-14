@@ -15,7 +15,9 @@
                 <img alt="" v-bind:src="info.imgPath">
                 <img alt="" v-bind:src="info.imgPath">
                 <ul class="list-inline">
-                  <li><a href="#"><i class="icon-heart"></i></a></li>
+                  <li style="position: relative">
+                    <i style="position: absolute;top:-52px;left: -50px" class="heart" v-bind:id="'h' + info.id" v-on:click="heart(info.id)" rel="like"></i>
+                  </li>
                   <li><a href="" data-toggle="modal"
                          v-bind:data-target="'#model' + info.id"><i class="icon-speak"></i></a></li>
                   <!--<li><a href="#"><i class="icon-speak"></i></a></li>-->
@@ -24,7 +26,11 @@
                 </ul>
               </div>
               <div class="legend">
-                <h3><a href="#"><i class="icon-heart"></i> 51 Likes</a></h3>
+                <h3 style="position: relative">
+                  <!--<i class="icon-heart"></i>-->
+                  <i class="heart" style="background-position: right;position: absolute;left: 330px;top: -32px;"></i>
+                  {{ info.like }} Likes
+                </h3>
                 <h4 class="pull-left "></h4>
                 <p></p>
               </div>
@@ -50,7 +56,8 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary" v-on:click="comment(info.id)" data-dismiss="modal">提交
+                        <button type="button" class="btn btn-primary" v-on:click="comment(info.id)"
+                                data-dismiss="modal">提交
                         </button>
                       </div>
                     </div>
@@ -70,32 +77,6 @@
   import API from '../config/req'
   import im from  '../assets/buyed/img/1.jpg'
   import Navs from './Nav'
-  $(function () {
-    $('.feedify').feedify();
-  });
-  !function (e) {
-    e.fn.feedify = function () {
-      var i = this;
-      e(window).bind("scroll touchmove", function (d) {
-        i.children(".feedify-item").each(function () {
-          var d = e(this),
-            t = i.width(),
-            s = e(this).height(),
-            h = e(this).children(".feedify-item-header").outerHeight(),
-            f = d.offset(),
-            o = f.top - e(window).scrollTop(),
-            c = "-" + (s - h);
-          o > c && 0 > o ? (e(this).addClass("fixed").removeClass("bottom").children(".feedify-item-header").css("width", t),
-            e(this).children(".feedify-item-body").css("paddingTop", h),
-            e(this).children(".feedify-item-header").css("width", t)) : c >= o ? (e(this).removeClass("fixed").addClass("bottom"),
-            e(this).children(".feedify-item-body").css("paddingTop", h),
-            e(this).children(".feedify-item-header").css("width", t)) : (e(this).removeClass("fixed").removeClass("bottom").children(".feedify-item-header").css("width", "auto"),
-            e(this).children(".feedify-item-body").css("paddingTop", "0"),
-            e(this).children(".feedify-item-header").css("width", "auto"))
-        })
-      })
-    }
-  }(jQuery);
   export default {
     name: 'buyed',
     data () {
@@ -106,6 +87,7 @@
           {
             id: 1,
             imgPath: im,
+            like: 51,
             goodname: '可乐',
             comment: [
               {
@@ -125,6 +107,7 @@
           {
             id: 2,
             goodname: '可乐',
+            like: 20,
             imgPath: "http://182.254.130.205/picture/%E5%8F%AF%E4%B9%90.jpg",
             comment: [
               {
@@ -157,20 +140,43 @@
       Navs
     },
     methods: {
+      heart(id){
+        let self = this;
+
+        let h = $('#h' + id);
+        if (h.attr("rel") === 'like') {
+          h.addClass('heartAnimation').attr("rel", "unlike");
+          for (let i = 0; i < self.allInfor.length; i++) {
+            if (self.allInfor[i].id === id) {
+              self.allInfor[i].like ++;
+              break;
+            }
+          }
+        } else {
+          h.removeClass("heartAnimation").attr("rel", "like");
+          h.css("background-position", "left");
+          for (let i = 0; i < self.allInfor.length; i++) {
+            if (self.allInfor[i].id === id) {
+              self.allInfor[i].like --;
+              break;
+            }
+          }
+        }
+      },
       comment(id){
         console.log(id);
         let self = this;
         console.log(self.tempcommon);
 
-        if(self.tempcommon === ''){
-            alert('请输入内容');
-            return false;
+        if (self.tempcommon === '') {
+          alert('请输入内容');
+          return false;
         }
 
         for (let i = 0; i < self.allInfor.length; i++) {
-            if(self.allInfor[i].id === id){
-                self.allInfor[i].comment.push({username: self.username,evaluate: self.tempcommon});
-            }
+          if (self.allInfor[i].id === id) {
+            self.allInfor[i].comment.push({username: self.username, evaluate: self.tempcommon});
+          }
         }
         self.tempcommon = '';
 
@@ -219,6 +225,9 @@
   /*@import "http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,800,800italic,700italic";*/
   @import "../assets/perinfo/css/feedify.min.css";
   @import "../assets/perinfo/css/feedify-theme.min.css";
+  @import "../assets/heart/css/default.css";
+  @import "../assets/heart/css/style.css";
+  @import "../assets/heart/css/normalize.css";
 
   .bag {
     background: silver;
@@ -233,4 +242,5 @@
     font-family: "akkurat", sans-serif;
     margin-top: 10px;
   }
+
 </style>

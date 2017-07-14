@@ -23,7 +23,8 @@ const API = {
   findShopRecord: baseurl + '/ShopRecord' + '/find',
   getGoodImage: baseurl + '/getGoodImage',
   getCommentn: baseurl + '/ShopRecord' + '/getEvalutionByGoodId',
-  createShopRecord: baseurl + "/ShopRecord/create"
+  createShopRecord: baseurl + "/ShopRecord/create",
+  sendEmail:baseurl+"/ShopRecord/whSendEmail"
 
 
 };

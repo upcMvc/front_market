@@ -5,32 +5,32 @@
       <nav  id="sidebar-wrapper" role="navigation">
         <ul class="sidebar-nav">
           <li>
-            <a href="#">
+            <a href="/index">
               <img src="../assets/img/nav/home.png" alt="" width="22px">
               &nbsp;&nbsp;主页
             </a>
           </li>
           <li>
-            <a href="/">
+            <a href="/index#daily">
               <i class="fa fa-fw"></i>
               <img src="../assets/img/nav/stuff.png" alt="" width="22px">
               &nbsp;&nbsp;日常用品
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/index#snacks">
               <img src="../assets/img/nav/snack.png" alt="" width="22px">
               &nbsp;&nbsp;零食
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/index#fruits">
               <img src="../assets/img/nav/fruit.png" alt="" width="22px">
               &nbsp;&nbsp;水果
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/index#drink">
               <img src="../assets/img/nav/drink.png" alt="" width="22px">
               &nbsp;&nbsp;饮品
             </a>
@@ -84,6 +84,9 @@
     },
     created(){
         this.myInit()
+    },
+    mounted(){
+
     },
     methods : {
       myInit(){

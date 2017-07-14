@@ -4,23 +4,97 @@
     <div class="ad">
       <slide :slides="slides" :inv="inv" :style="styleObject" :name="transitionName1" :target="target"></slide>
     </div>
-    <h2>零食街</h2>
-    <hr>
-    <div class="product" v-for="(info,index) in goodsinfo">
-      <div class="make3D">
-        <!--<img src="../assets/good/img/8.jpg" alt="">-->
-        <img v-bind:src="info.imgPath" alt="">
-        <div class="stats">
-          <div class="stats-container">
-            <span class="product_price">¥{{ info.price }}</span>
-            <span class="product_name">{{ info.name }}</span>  <br>
-            <div>
-              <h4>{{ info.kind }}</h4>
+    <div style="overflow: hidden;">
+      <h2 id="daily">日常用品</h2>
+      <hr>
+      <div class="product" v-for="(info,index) in daily">
+        <div class="make3D">
+          <!--<img src="../assets/good/img/8.jpg" alt="">-->
+          <img v-bind:src="info.imgPath" alt="">
+          <div class="stats">
+            <div class="stats-container">
+              <span class="product_price">¥{{ info.price }}</span>
+              <span class="product_name">{{ info.name }}</span> <br>
+              <div>
+                <h4>{{ info.kind }}</h4>
+              </div>
+              <div>
+                <h4 class="text-left h4">描述：{{ info.describes }}</h4>
+              </div>
+              <br>
+              <cartcontrol :pushid="info.id" v-on:push="getId"></cartcontrol>
             </div>
-            <div>
-              <h4 class="text-left h4">描述：{{ info.describes }}</h4>
-            </div><br>
-            <cartcontrol :pushid="info.id" v-on:push="getId"></cartcontrol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="overflow: hidden;">
+      <h2 id="snacks">零食</h2>
+      <hr>
+      <div class="product" v-for="(info,index) in snacks">
+        <div class="make3D">
+          <!--<img src="../assets/good/img/8.jpg" alt="">-->
+          <img v-bind:src="info.imgPath" alt="">
+          <div class="stats">
+            <div class="stats-container">
+              <span class="product_price">¥{{ info.price }}</span>
+              <span class="product_name">{{ info.name }}</span> <br>
+              <div>
+                <h4>{{ info.kind }}</h4>
+              </div>
+              <div>
+                <h4 class="text-left h4">描述：{{ info.describes }}</h4>
+              </div>
+              <br>
+              <cartcontrol :pushid="info.id" v-on:push="getId"></cartcontrol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="overflow: hidden;">
+      <h2 id="fruits">水果</h2>
+      <hr>
+      <div class="product" v-for="(info,index) in fruits">
+        <div class="make3D">
+          <img v-bind:src="info.imgPath" alt="">
+          <div class="stats">
+            <div class="stats-container">
+              <span class="product_price">¥{{ info.price }}</span>
+              <span class="product_name">{{ info.name }}</span> <br>
+              <div>
+                <h4>{{ info.kind }}</h4>
+              </div>
+              <div>
+                <h4 class="text-left h4">描述：{{ info.describes }}</h4>
+              </div>
+              <br>
+              <cartcontrol :pushid="info.id" v-on:push="getId"></cartcontrol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="overflow: hidden;">
+      <h2 id="drink">饮品</h2>
+      <hr>
+      <div class="product" v-for="(info,index) in drink">
+        <div class="make3D">
+          <img v-bind:src="info.imgPath" alt="">
+          <div class="stats">
+            <div class="stats-container">
+              <span class="product_price">¥{{ info.price }}</span>
+              <span class="product_name">{{ info.name }}</span> <br>
+              <div>
+                <h4>{{ info.kind }}</h4>
+              </div>
+              <div>
+                <h4 class="text-left h4">描述：{{ info.describes }}</h4>
+              </div>
+              <br>
+              <cartcontrol :pushid="info.id" v-on:push="getId"></cartcontrol>
+            </div>
           </div>
         </div>
       </div>
@@ -47,20 +121,24 @@
     data () {
       return {
         goodsinfo: [],
+        daily: [],
+        drink: [],
+        fruits: [],
+        snacks: [],
         //轮播图
         slides: [{
-            src: datu1,
-            href: ''
-          }, {
-            src: datu2,
-            href: ''
-          }, {
-            src: datu3,
-            href: ''
-          }, {
-            src: datu4,
-            href: ''
-          }],
+          src: datu1,
+          href: ''
+        }, {
+          src: datu2,
+          href: ''
+        }, {
+          src: datu3,
+          href: ''
+        }, {
+          src: datu4,
+          href: ''
+        }],
         inv: 3000,
         styleObject: {
           width: '100%',
@@ -69,13 +147,13 @@
         transitionName1: 'move',
         transitionName2: 'fade',
         target: '_blank'
-        }
+      }
     },
     created(){
       this.initData()
     },
     mounted(){
-      let self = this;
+      let self = this
       //this.initScroll()
       setTimeout(() => {
         self.initShowing()
@@ -103,12 +181,39 @@
         let token = localStorage.getItem('token');
         this.$http.get(API.GoodsInfo, {params: {Authorization: token}}
         ).then((response) => {
-          self.goodsinfo = response.data;
-          console.log(self.goodsinfo);
+          self.goodsinfo = response.data
+        }, () => {
+          console.log('error !')
+        })
 
+        //日常用品
+        this.$http.get(API.daily, {params: {Authorization: token}}
+        ).then((response) => {
+          self.daily = response.data;
         }, () => {
           console.log('error !');
-        });
+        })
+        //零食
+        this.$http.get(API.snacks, {params: {Authorization: token}}
+        ).then((response) => {
+          self.snacks = response.data;
+        }, () => {
+          console.log('error !');
+        })
+        //水果
+        this.$http.get(API.fruits, {params: {Authorization: token}}
+        ).then((response) => {
+          self.fruits = response.data
+        }, () => {
+          console.log('error !')
+        })
+        //饮品
+        this.$http.get(API.drink, {params: {Authorization: token}}
+        ).then((response) => {
+          self.drink = response.data;
+        }, () => {
+          console.log('error !');
+        })
       },
       getId(id){
         let token = localStorage.getItem('token');
@@ -119,14 +224,14 @@
           goodId: id,
           num: 1
         };
-        this.$http.post(API.shoppcartCreat,postData).then((response) => {
-            console.log(response.data)
+        this.$http.post(API.shoppcartCreat, postData).then((response) => {
+          console.log(response.data)
         }, () => {
-            alert('添加购物车失败！请稍后再试！')
+          alert('添加购物车失败！请稍后再试！')
         });
       },
       shopCar(){
-          this.$router.push({path:'/shopcar'})
+        this.$router.push({path: '/shopcar'})
       }
     },
     components: {
@@ -165,7 +270,8 @@
     box-shadow: 1px 1px 1px 1px #888888;
     transition: all 0.5s;
   }
-  .ad{
+
+  .ad {
     width: 80%;
     height: 400px;
     margin-left: 10%;

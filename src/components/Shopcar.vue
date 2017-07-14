@@ -47,7 +47,7 @@
                   <!--图片后面的文字-->
                   <div class="cart-item-title">
                     <div class="item-name">
-                      {{ item.name + "--我是index的值" + index}}
+                      {{ item.name }}
                     </div>
                   </div>
                   <!-- 赠送-->
@@ -267,13 +267,13 @@
               );
             }
           })
+          alert("订单提交成功，正在进行派送");
         }, () => {
           console.log("获取不到addressId");
         })
         setTimeout(()=>{
             location.reload()
-        },300)
-        alert("订单提交成功，正在进行派送");
+        },300);
       }
     }
   }

@@ -258,9 +258,8 @@
                 cost: item.price * item.goodNum,
                 addressId: self.addId
               };
-              self.$http.post(API.createShopRecord, postData).then((response) => {
+              self.$http.post(API.createShopRecord, postData).then(() => {
                   self.totalMoney = 0;
-                  alert("提交成功,订单正在处理");
                   self.deleteIt(item, index);
                 }, () => {
                   alert("提交失败");
@@ -270,8 +269,11 @@
           })
         }, () => {
           console.log("获取不到addressId");
-        });
-
+        })
+        setTimeout(()=>{
+            location.reload()
+        },300)
+        alert("订单提交成功，正在进行派送");
       }
     }
   }

@@ -71,6 +71,7 @@ body {
   padding: 0;
   top: 0;
   width: 220px;
+  background-color: #FB8072;
 
 }
 .sidebar-nav li {
@@ -246,5 +247,5 @@ body {
 /* SOME DEMO STYLES - NOT REQUIRED */
 body,
 html {
-  background-color: Silver ;
+  background-color:silver ;
 }

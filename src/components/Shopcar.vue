@@ -105,11 +105,11 @@
                 <span class="item-check-btn" :class="{'check': checkAllFlag}" @click="checkAll(true)">
                                 <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
                             </span>
-                <span @click="checkAll(true)"> 全选 </span>
+                <span @click="checkAll(true)" class="btnC"> 全选 </span>
               </a>
             </div>
             <div class="item-all-del">
-              <a href="javascript:;" @click="checkAll(false)"> 取消全选</a>
+              <a href="javascript:;" @click="checkAll(false)" class="btnC"> 取消全选</a>
             </div>
           </div>
           <!--footer 右边的-->
@@ -162,7 +162,67 @@
     },
     methods: {
       cartView: function () {
+<<<<<<< HEAD
         let self = this;
+=======
+        let self = this
+        this.productList = [
+            {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }, {
+            "productId": "600100002115",
+            "productName": "黄鹤楼香烟",
+            "productPrice": 19,
+            "productQuentity": 1,
+            "productImage": "http://d8.yihaodianimg.com/N05/M0B/D0/3E/CgQI0lSFGeSAYpHQAAT3Nw4l5Eo66700.jpg",
+          }]
+>>>>>>> 5896effda6ffad8742fb0d17f3c3ae6725d27556
         let userId = localStorage.getItem("id");//拿到本地存储的userId
         let token = localStorage.getItem("token");//后台安全认证用token
         self.$http.get(API.shoppingCart + "/find", {
@@ -289,12 +349,16 @@
   }
 
   .quentity > a {
-    color: white;
+    color: black;
     text-decoration: none;
   }
 
   .quentity > a:hover {
-    color: white;
+    color: black;
     text-decoration: none;
+  }
+  .btnC{
+    text-decoration: none;
+    color: black;
   }
 </style>

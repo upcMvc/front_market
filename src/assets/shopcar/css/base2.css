@@ -22,7 +22,8 @@ ul, ol {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: DimGray}
+  background-color:white /*背景色*！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！*/
+}
 
 div, p, dl, dt, dd {
   margin: 0;
@@ -118,12 +119,15 @@ button:disabled {
   cursor: default; }
 
 a {
-  color: AntiqueWhite;
+ /*//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  background: none;
   text-decoration: none; }
 
 a:active,
 a:hover {
-  outline: 0; }
+  outline: 0;
+  color: black
+}
 
 h1 {
   font-size: 2em; }
@@ -272,8 +276,8 @@ body {
 
 input[type="text"], textarea {
   padding: .5em 20px;
-  border: 1px solid AntiqueWhite;
-  background: AntiqueWhite;
+  border: 1px solid silver;
+  background: silver;
   color: Black}
 
 .up-down-btn {

@@ -118,11 +118,7 @@
               总价：<span class="total-price"> {{ totalMoney | formatMoney}}</span>
             </div>
             <div class="next-btn-wrap">
-<<<<<<< HEAD
-              <a href="" class="btn btn--red" @click="sub()">结账</a>
-=======
               <button class="btn btn--red" @click="sub()"> 结账 </button>
->>>>>>> a3f657ea0696e2229773b2624e75ce2e7a79ed4d
             </div>
           </div>
         </div>

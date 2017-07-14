@@ -1,50 +1,45 @@
 <template>
-  <div class="heart">
-    <h3>点击下面的红心查看效果！</h3>
-    <div class="feed" id="feed1">
-      <p>W3C <a href="http://www.w3.org/" target="_blank">http://www.w3.org/</a></p>
-      <div class="heart " id="like1" rel="like"></div>
-      <div class="likeCount" id="likeCount1">14</div>
-    </div>
+  <div>
+    <slide :slides="slides" :inv="inv" :style="styleObject" :name="transitionName1" :target="target"></slide>
   </div>
 </template>
-
 <script>
-  import API from '../config/req'
-  import Navs from './Nav.vue'
-  import heartneed from './heartneed.js'
-  export default {
-    name: 'heart',
+  import slide from '@/components/slide/slide.vue'
+  import datu1 from  '../assets/img/ad/datu1.jpg'
+  import datu2 from  '../assets/img/ad/datu2.jpg'
+  import datu3 from  '../assets/img/ad/datu3.jpg'
+  import datu4 from  '../assets/img/ad/datu4.jpg'
+  export default{
+    components: {slide},
     data () {
-      return {}
-    },
-    mounted(){
-      this.ready()
-    },
-    components: {},
-    methods: {
-      ready(){
-        $('body').on("click", '.heart', function () {
-          var A = $(this).attr("id");
-          var B = A.split("like");
-          var messageID = B[1];
-          var C = parseInt($("#likeCount" + messageID).html());
-          $(this).css("background-position", "")
-          var D = $(this).attr("rel");
-          if (D === 'like') {
-            $("#likeCount" + messageID).html(C + 1);
-            $(this).addClass("heartAnimation").attr("rel", "unlike");
+      return {
+        slides: [
+          {
+            src: datu1,
+            href: ''
+          },
+          {
+            src: datu2,
+            href: ''
+          },
+          {
+            src: datu3,
+            href: ''
+          },
+          {
+            src: datu4,
+            href: ''
           }
-          else {
-            $("#likeCount" + messageID).html(C - 1);
-            $(this).removeClass("heartAnimation").attr("rel", "like");
-            $(this).css("background-position", "left");
-          }
-        });
+        ],
+        inv: 3000,
+        styleObject: {
+          width: '1000px',
+          height: '400px'
+        },
+        transitionName1: 'move',
+        transitionName2: 'fade',
+        target: '_blank'
       }
     }
   }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>

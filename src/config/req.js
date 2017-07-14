@@ -14,15 +14,16 @@ const API = {
   shoppingCart: baseurl + "/ShoppingCart",//购物车相关操作api
   forget: baseurl + "/user/forget_password",
   getAddrFormBack: baseurl + "/address/findbyuserid",
-  setAddr:baseurl+"/address/create",
-  updatePerInfor:baseurl+"/user/reset_user",
+  setAddr: baseurl + "/address/create",
+  updatePerInfor: baseurl + "/user/reset_user",
   resetPassword: baseurl + '/user/reset_password',
-  setAvatar:baseurl+'/user/setAvatar',
+  setAvatar: baseurl + '/user/setAvatar',
   shoppcartCreat: baseurl + '/ShoppingCart' + '/create',
-  history:baseurl+"/history",//历史记录相关操作API
+  history: baseurl + "/history",//历史记录相关操作API
   findShopRecord: baseurl + '/ShopRecord' + '/find',
   getGoodImage: baseurl + '/getGoodImage',
-  getCommentn: baseurl + '/ShopRecord' + '/getcommentn'
+  getCommentn: baseurl + '/ShopRecord' + '/getcommentn',
+  createShopRecord: baseurl + "/ShopRecord/create"
 
 
 };

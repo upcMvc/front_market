@@ -13,16 +13,16 @@
             </header>
             <footer>
               <div style="height: 900px;width: 100%">
-                <div>
+                <div v-for="s in stuff" style="overflow: hidden">
                   <div class="wrapper">
-                    <img src="http://182.254.130.205/picture/%E7%AC%941.jpg" alt="" class="left">
+                    <img v-bind:src="s.img" alt="" class="left">
                     <div class="right">
-                      <p class="text-left  myfont">商品名：{{1}}</p><br>
-                      <p class="text-left  myfont">仓库地址：{{}}</p><br>
-                      <p class="text-left  myfont">商品价格：{{}}</p><br>
-                      <p class="text-left  myfont">商品种类：{{}}</p><br>
-                      <p class="text-left  myfont">商品描述：{{}}</p><br>
-                      <button class="btn btn-default btn-lg">删除</button>
+                      <p class="text-left  myfont">商品名：{{s.goodname}}</p><br>
+                      <p class="text-left  myfont">仓库地址：{{s.goodaddr}}</p><br>
+                      <p class="text-left  myfont">商品价格：{{s.goodprice}}</p><br>
+                      <p class="text-left  myfont">商品种类：{{s.kind}}</p><br>
+                      <p class="text-left  myfont">商品描述：{{s.gooddesc}}</p><br>
+                      <button class="btn btn-default btn-lg" @click="deletegood()">删除</button>
                     </div>
                   </div>
                 </div>
@@ -129,7 +129,15 @@
         username: '',
         reader: '',
         suffix: '',
-        stuff: []
+        stuff: [{
+          goodname:'笔',
+          goodaddr:'',
+          goodprice:'9.9',
+          goodnum:'20',
+          goodkind:'日常用品',
+          gooddesc:'胡萝卜卡通笔个性笔学生中性笔水性笔两支装',
+          img:'http://182.254.130.205/picture/%E7%AC%94.jpg'
+        }]
       }
     },
     created(){
@@ -153,11 +161,22 @@
           reader: self.reader,
           suffix: self.suffix
         }
-        this.$http.post(API.pushgood, data).then((response) => {
-            console.log(response)
-        }, () => {
-          alert("访问服务器失败")
-        })
+//        this.$http.post(API.pushgood, data).then((response) => {
+//            console.log(response)
+//        }, () => {
+//          alert("访问服务器失败")
+//        })
+        let img = 'data:image/' + self.suffix + ';base64,' + self.base64
+        let data2 = {
+          goodname:self.goodname,
+          goodaddr:self.goodaddr,
+          goodprice:self.goodprice,
+          goodnum:self.goodnum,
+          goodkind:self.goodkind,
+          gooddesc:self.gooddesc,
+          img: img
+        }
+        self.stuff.push(data2)
       },
       getInfo(){
         let data = {
@@ -173,6 +192,9 @@
       getPic(reader, suffix){
         this.reader = reader
         this.suffix = suffix
+      },
+      deletegood(){
+          this.stuff.shift()
       }
     }
   }
